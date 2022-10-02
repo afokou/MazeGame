@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox alignment="CENTER" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+<VBox alignment="CENTER" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Hard">
    <children>
       <HBox alignment="TOP_CENTER" VBox.vgrow="SOMETIMES" />
       <Pane fx:id="pane" minHeight="400.0" minWidth="400.0">

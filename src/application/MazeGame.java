@@ -13,7 +13,7 @@ public class MazeGame extends Application
 	public void start(Stage primaryStage) throws Exception
 	{
 		FXMLLoader fxmlLoader = new FXMLLoader();
-		fxmlLoader.setLocation(getClass().getResource("/MazeGame.fxml"));
+		fxmlLoader.setLocation(getClass().getResource("/scenes/Intro/Intro.fxml"));
 		Parent root = fxmlLoader.load();
 		primaryStage.setTitle("MazeGame");
         primaryStage.setFullScreen(false);
