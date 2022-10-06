@@ -2,10 +2,20 @@ package application;
 
 import javafx.event.EventHandler;
 import javafx.scene.input.MouseEvent;
-
+import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 
 public class Levels implements EventHandler<MouseEvent>{
-    public void initialize() {
+	@FXML
+	Button easyLevel;
+	
+	@FXML
+	Button mediumLevel;
+	
+	@FXML 
+	Button hardLevel;
+	
+	public void initialize() {
     }
 
 	@Override

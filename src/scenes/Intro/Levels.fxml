@@ -1,18 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.Pane?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<VBox alignment="CENTER" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Levels">
+<AnchorPane fx:controller="application.Levels" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #3552B8;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <HBox alignment="TOP_CENTER" VBox.vgrow="SOMETIMES" />
-      <Pane fx:id="pane" minHeight="400.0" minWidth="400.0">
-         <children>
-            <Label layoutX="189.0" layoutY="192.0" text="test" />
-            <Button layoutX="173.0" layoutY="230.0" mnemonicParsing="false" text="Button" />
-         </children></Pane>
+      <Button fx:id="easyLevel" layoutX="103.0" layoutY="200.0" mnemonicParsing="false" prefHeight="66.0" prefWidth="118.0" style="-fx-background-color: #DDFBE9;" text="EASY" />
+      <Button fx:id="mediumLevel" layoutX="242.0" layoutY="201.0" mnemonicParsing="false" prefHeight="66.0" prefWidth="118.0" style="-fx-background-color: #F7F8DD;" text="MEDIUM" />
+      <Button fx:id="hardLevel" layoutX="379.0" layoutY="202.0" mnemonicParsing="false" prefHeight="66.0" prefWidth="118.0" style="-fx-background-color: #FFDEDE;" text="HARD" />
+      <Text fill="#fcfcfc" layoutX="236.0" layoutY="106.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Level">
+         <font>
+            <Font size="57.0" />
+         </font>
+      </Text>
+      <Text fill="#fcfcfc" layoutX="203.0" layoutY="173.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Choose your level">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Text>
+      <Button layoutX="550.0" layoutY="14.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="36.0" style="-fx-background-color: #ffff;" text="?" />
    </children>
-</VBox>
+</AnchorPane>
