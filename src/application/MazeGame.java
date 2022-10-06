@@ -5,6 +5,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.input.MouseEvent;
+import javafx.event.Event;
+import javafx.event.EventHandler;
 
 public class MazeGame extends Application 
 {
@@ -48,10 +51,13 @@ public class MazeGame extends Application
 			primaryStage.setScene(charactersView);
         });
 		
-		charactersController.char1.setOnAction(e -> {
-			primaryStage.setScene(easyView);
+		charactersController.char1.setPickOnBounds(true);
+		charactersController.char1.setOnMouseClicked(new EventHandler() {
+			@Override
+			public void handle(Event arg0) {
+				primaryStage.setScene(easyView);
+			}
 		});
-		
 		easyController.initialise();
 		
 		primaryStage.setTitle("Game");
