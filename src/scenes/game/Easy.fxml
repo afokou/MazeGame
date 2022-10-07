@@ -4,28 +4,46 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
+<?import javafx.scene.shape.Polygon?>
+<?import javafx.scene.shape.Rectangle?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #3552B8;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Easy">
+<AnchorPane maxHeight="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #3552B8;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Easy">
    <children>
-	    <ImageView layoutX="86.0" layoutY="200.0" preserveRatio="true" smooth="true" fx:id="character">
+	    <ImageView fx:id="character" fitHeight="51.0" fitWidth="36.0" layoutX="26.0" layoutY="72.0" preserveRatio="true" smooth="true">
          <image>
             <Image url="@../../resources/img/char1.png" />
          </image>
 	    </ImageView>
-		    
-		    
-      <Text fill="#fcfcfc" layoutX="39.0" layoutY="95.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome to the game">
-         <font>
-            <Font size="57.0" />
-         </font>
-      </Text>
-      <Text fill="#fcfcfc" layoutX="130.0" layoutY="145.0" strokeType="OUTSIDE" strokeWidth="0.0" text="I'm too easy. Come and get me.">
-         <font>
-            <Font size="26.0" />
-         </font>
-      </Text>
       <Button layoutX="550.0" layoutY="14.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="36.0" style="-fx-background-color: #ffff;" text="?" />
+      <Button layoutX="16.0" layoutY="18.0" mnemonicParsing="false" style="-fx-background-color: fff;" text="Back" />
+      <Polygon fx:id="obstacle3" fill="WHITE" layoutX="138.0" layoutY="49.0" points="39.50749206542969, 48.40196228027344, 56.110504150390625, 75.0, 20.532623291015625, 75.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
+      <Polygon fx:id="obstacle7" fill="WHITE" layoutX="325.0" layoutY="109.0" points="39.50749206542969, 48.40196228027344, 56.110504150390625, 75.0, 20.532623291015625, 75.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
+      <Polygon fx:id="obstacle2" fill="WHITE" layoutX="51.0" layoutY="108.0" points="39.50749206542969, 48.40196228027344, 56.110504150390625, 75.0, 20.532623291015625, 75.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
+      <Polygon fx:id="obstacle9" fill="WHITE" layoutX="442.0" layoutY="168.0" points="39.50749206542969, 48.40196228027344, 56.110504150390625, 75.0, 20.532623291015625, 75.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
+      <Polygon fx:id="obstacle6" fill="WHITE" layoutX="265.0" layoutY="207.0" points="39.50749206542969, 48.40196228027344, 56.110504150390625, 75.0, 20.532623291015625, 75.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
+      <Polygon fx:id="obstacle8" fill="WHITE" layoutX="361.0" layoutY="207.0" points="39.50749206542969, 48.40196228027344, 56.110504150390625, 75.0, 20.532623291015625, 75.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
+      <Polygon fx:id="obstacle5" fill="WHITE" layoutX="261.0" layoutY="11.0" points="39.50749206542969, 48.40196228027344, 56.110504150390625, 75.0, 20.532623291015625, 75.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
+      <Polygon fx:id="obstacle4" fill="WHITE" layoutX="166.0" layoutY="139.0" points="39.50749206542969, 48.40196228027344, 56.110504150390625, 75.0, 20.532623291015625, 75.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
+      <Polygon fx:id="obstacle1" fill="WHITE" layoutX="35.0" layoutY="181.0" points="39.50749206542969, 48.40196228027344, 56.110504150390625, 75.0, 20.532623291015625, 75.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
+      <Polygon fx:id="obstacle10" fill="WHITE" layoutX="443.0" layoutY="60.0" points="39.50749206542969, 48.40196228027344, 56.110504150390625, 75.0, 20.532623291015625, 75.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
+      <Rectangle fill="WHITE" height="90.0" layoutY="310.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="600.0" />
+      <Rectangle fill="#c9c9c9" height="35.0" layoutX="152.0" layoutY="318.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="35.0" />
+      <Rectangle fill="#c9c9c9" height="35.0" layoutX="152.0" layoutY="356.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="35.0" />
+      <ImageView fitHeight="45.0" fitWidth="45.0" layoutX="504.0" layoutY="331.0">
+         <image>
+            <Image url="@../../../../../Downloads/temperature.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="45.0" fitWidth="45.0" layoutX="398.0" layoutY="330.0">
+         <image>
+            <Image url="@../../../../../Downloads/brightness.png" />
+         </image>
+      </ImageView>
+      <Rectangle fill="#c9c9c9" height="35.0" layoutX="190.0" layoutY="318.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="35.0" />
+      <Rectangle fill="#c9c9c9" height="35.0" layoutX="190.0" layoutY="356.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="35.0" />
+      <Rectangle fill="#c9c9c9" height="35.0" layoutX="228.0" layoutY="318.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="35.0" />
+      <Rectangle fill="#c9c9c9" height="35.0" layoutX="228.0" layoutY="356.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="35.0" />
+      <Rectangle fill="#c9c9c9" height="35.0" layoutX="266.0" layoutY="318.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="35.0" />
+      <Rectangle fill="#c9c9c9" height="35.0" layoutX="266.0" layoutY="356.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="35.0" />
    </children>
 </AnchorPane>
