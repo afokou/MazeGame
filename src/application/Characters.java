@@ -11,6 +11,10 @@ import javafx.scene.image.ImageView;
 public class Characters implements EventHandler<MouseEvent>{
 	@FXML
 	ImageView char1;
+	@FXML
+	ImageView char2;
+	@FXML
+	ImageView char3;
 	
     public void initialize() {
     }

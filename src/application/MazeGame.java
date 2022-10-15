@@ -11,11 +11,16 @@ import javafx.event.EventHandler;
 
 public class MazeGame extends Application 
 {
-	private Scene startView, levelsView, charactersView, easyView;
+	private Scene startView, levelsView, charactersView, easyView, mediumView, hardView;
 	private Intro introController;
 	private Levels levelsController;
 	private Characters charactersController;
-	private Easy easyController;
+	private GameLayout easyController;
+	private GameLayout mediumController;
+	private GameLayout hardController;
+	
+	private String level = "easy";
+	private String character = "red";
 	
 	@Override
 	public void start(Stage primaryStage) throws Exception
@@ -23,31 +28,40 @@ public class MazeGame extends Application
 		FXMLLoader start = new FXMLLoader(getClass().getResource("/scenes/Intro/Intro.fxml"));
 		FXMLLoader levels = new FXMLLoader(getClass().getResource("/scenes/Intro/Levels.fxml"));
 		FXMLLoader characters = new FXMLLoader(getClass().getResource("/scenes/Intro/Characters.fxml"));
-		FXMLLoader easy = new FXMLLoader(getClass().getResource("/scenes/Game/Easy.fxml")); 
+		FXMLLoader easy = new FXMLLoader(getClass().getResource("/scenes/Game/Easy.fxml"));
+		FXMLLoader medium = new FXMLLoader(getClass().getResource("/scenes/Game/Medium.fxml"));
+		FXMLLoader hard = new FXMLLoader(getClass().getResource("/scenes/Game/Hard.fxml"));
 		
 		startView = new Scene(start.load());
 		levelsView = new Scene(levels.load());
 		charactersView = new Scene(characters.load());
 		easyView = new Scene(easy.load());
+		mediumView = new Scene(medium.load());
+		hardView = new Scene(hard.load());
 		
 		introController = start.getController();
 		levelsController = levels.getController();
 		charactersController = characters.getController();
 		easyController = easy.getController();
+		mediumController = medium.getController();
+		hardController = hard.getController();
 		
 		introController.start.setOnAction(e -> {
 			primaryStage.setScene(levelsView);
         });
 		
 		levelsController.easyLevel.setOnAction(e -> {
+			level = "easy";
 			primaryStage.setScene(charactersView);
         });
 		
 		levelsController.mediumLevel.setOnAction(e -> {
+			level = "medium";
 			primaryStage.setScene(charactersView);
         });
 		
 		levelsController.hardLevel.setOnAction(e -> {
+			level = "hard";
 			primaryStage.setScene(charactersView);
         });
 		
@@ -55,14 +69,72 @@ public class MazeGame extends Application
 		charactersController.char1.setOnMouseClicked(new EventHandler() {
 			@Override
 			public void handle(Event arg0) {
-				primaryStage.setScene(easyView);
+				getLevelController().characterType = "red";
+				getLevelController().initialiseCharacter(getClass());
+				primaryStage.setScene(getLevelScene());
 			}
 		});
-		easyController.initialise();
+		charactersController.char2.setPickOnBounds(true);
+		charactersController.char2.setOnMouseClicked(new EventHandler() {
+			@Override
+			public void handle(Event arg0) {
+				getLevelController().characterType = "yellow";
+				getLevelController().initialiseCharacter(getClass());
+				primaryStage.setScene(getLevelScene());
+			}
+		});
+		charactersController.char3.setPickOnBounds(true);
+		charactersController.char3.setOnMouseClicked(new EventHandler() {
+			@Override
+			public void handle(Event arg0) {
+				getLevelController().characterType = "blue";
+				getLevelController().initialiseCharacter(getClass());
+				primaryStage.setScene(getLevelScene());
+			}
+		});
+		
+		easyController.setup();
+		easyController.run();
+		mediumController.setup();
+		mediumController.run();
+		hardController.setup();
+		hardController.run();
 		
 		primaryStage.setTitle("Game");
 		primaryStage.setScene(startView);
 		primaryStage.show();
+	}
+	
+	private Scene getLevelScene() {
+		if (level == "easy") {
+			return easyView;
+		}
+		
+		if (level == "medium") {
+			return mediumView;
+		}
+		
+		if (level == "hard") {
+			return hardView;
+		}
+		
+		return null;
+	}
+	
+	private GameLayout getLevelController() {
+		if (level == "easy") {
+			return easyController;
+		}
+		
+		if (level == "medium") {
+			return mediumController;
+		}
+		
+		if (level == "hard") {
+			return hardController;
+		}
+		
+		return null;
 	}
 
 	/**

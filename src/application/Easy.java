@@ -18,7 +18,7 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 
 
-public class Easy {
+public class Easy extends GameLayout {
 	@FXML
 	ImageView character;
 	@FXML
@@ -62,24 +62,33 @@ public class Easy {
 	@FXML
 	ImageView inventoryImage4;
 	
+	
     double imageX = 0;
     double imageY = 0;
-
-	public void initialise() {
-		List<ImageView> inventoryFoods = new ArrayList<ImageView>();
+    
+    public void initialiseCharacter(Class context) {
+    	if (characterType == "red") {
+    		character.setImage(new Image(context.getResourceAsStream("/resources/img/char1.png")));
+    	}
+    	if (characterType == "yellow") {
+    		character.setImage(new Image(context.getResourceAsStream("/resources/img/char2.png")));
+    	}
+    	if (characterType == "blue") {
+    		character.setImage(new Image(context.getResourceAsStream("/resources/img/char3.png")));
+    	}
+    }
+    
+    public void setup() {
 		inventoryFoods.add(inventoryFood1);
 		inventoryFoods.add(inventoryFood2);
 		inventoryFoods.add(inventoryFood3);
 		inventoryFoods.add(inventoryFood4);
 		
-		List<ImageView> inventoryImages = new ArrayList<ImageView>();
 		inventoryImages.add(inventoryImage1);
 		inventoryImages.add(inventoryImage2);
 		inventoryImages.add(inventoryImage3);
 		inventoryImages.add(inventoryImage4);
 		
-		
-		List<Node> obstacles = new ArrayList<Node>();
 		obstacles.add(obstacle1);
 		obstacles.add(obstacle2);
 		obstacles.add(obstacle3);
@@ -91,12 +100,11 @@ public class Easy {
 		obstacles.add(obstacle9);
 		obstacles.add(obstacle10);
 		
-		List<ImageView> foods = new ArrayList<ImageView>();
 		foods.add(food1);
-		
-		List<ImageView> images = new ArrayList<ImageView>();
 		images.add(image1);
-		
+    }
+
+	public void run() {
 		imageX = character.getLayoutX();
 		imageY = character.getLayoutY();
         character.getScene().addEventFilter(KeyEvent.ANY, key -> {
@@ -109,67 +117,12 @@ public class Easy {
             } else if (key.getCode().equals(KeyCode.UP) && !isObstacleCollision(character, imageX, imageY - 5, obstacles)) {
                 imageY -= 5;
             }
-            updateImageView();
+            character.setLayoutX(imageX);
+            character.setLayoutY(imageY);
             handleFoodCollision(character, foods, inventoryFoods);
             handleImageCollision(character, images, inventoryImages);
         });
         
         character.setFocusTraversable(true);
 	}
-	
-    private void updateImageView() {
-        character.setLayoutX(imageX);
-        character.setLayoutY(imageY);
-    }
-    
-    public boolean isObstacleCollision(ImageView character, double imageX, double imageY, List<Node> obstacles)
-    {
-    	double oldImageX = character.getLayoutX();
-    	double oldImageY = character.getLayoutY();
-        character.setLayoutX(imageX);
-        character.setLayoutY(imageY);
-    	for (Node obstacle : obstacles) {
-    		if(character.getBoundsInParent().intersects(obstacle.getBoundsInParent())) {
-    	        character.setLayoutX(oldImageX);
-    	        character.setLayoutY(oldImageY);
-	            return true;
-	        }
-    	}
-    	
-        character.setLayoutX(oldImageX);
-        character.setLayoutY(oldImageY);
-    	return false;
-    }
-    
-    public void handleFoodCollision(ImageView character, List<ImageView> foods, List<ImageView> inventoryFoods)
-    {
-    	for (ImageView food : foods) {
-    		if(character.getBoundsInParent().intersects(food.getBoundsInParent()) && food.getScene() != null) {
-    			Integer number = Integer.parseInt(food.getId().substring(food.getId().length() - 1));
-	            AnchorPane sceneRoot = (AnchorPane)food.getScene().getRoot();
-	            sceneRoot.getChildren().remove(food);
-	            
-	            ImageView inventoryFood = inventoryFoods.get(number - 1);
-	            inventoryFood.setImage(food.getImage());
-	            
-	            break;
-	        }
-    	}
-    }
-    
-    public void handleImageCollision(ImageView character, List<ImageView> images, List<ImageView> inventoryImages)
-    {
-    	for (ImageView image : images) {
-    		if(character.getBoundsInParent().intersects(image.getBoundsInParent()) && image.getScene() != null) {
-    			Integer number = Integer.parseInt(image.getId().substring(image.getId().length() - 1));
-	            AnchorPane sceneRoot = (AnchorPane)image.getScene().getRoot();
-	            sceneRoot.getChildren().remove(image);
-	            
-	            ImageView inventoryImage = inventoryImages.get(number - 1);
-	            inventoryImage.setImage(image.getImage());
-	            
-	            break;
-	        }
-    	}
-    }
 }

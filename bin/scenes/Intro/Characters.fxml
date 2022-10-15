@@ -21,17 +21,17 @@
       </Text>
       <ImageView fx:id="char1" fitHeight="106.0" fitWidth="97.0" layoutX="109.0" layoutY="222.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../../Downloads/char_red.png" />
+            <Image url="@../../resources/img/char_red.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="106.0" fitWidth="97.0" layoutX="247.0" layoutY="222.0">
+      <ImageView fx:id="char2" fitHeight="106.0" fitWidth="97.0" layoutX="247.0" layoutY="222.0">
          <image>
-            <Image url="@../../../../../Downloads/char_yellow.png" />
+            <Image url="@../../resources/img/char_yellow.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="106.0" fitWidth="97.0" layoutX="389.0" layoutY="223.0">
+      <ImageView fx:id="char3" fitHeight="106.0" fitWidth="97.0" layoutX="389.0" layoutY="223.0">
          <image>
-            <Image url="@../../../../../Downloads/char_blue.png" />
+            <Image url="@../../resources/img/char_blue.png" />
          </image>
       </ImageView>
       <Button layoutX="541.0" layoutY="21.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="36.0" style="-fx-background-color: #ffff;" text="?" />

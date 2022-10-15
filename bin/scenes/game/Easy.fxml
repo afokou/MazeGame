@@ -29,62 +29,62 @@
       <Rectangle fill="WHITE" height="90.0" layoutY="310.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="600.0" />
       <ImageView fitHeight="45.0" fitWidth="45.0" layoutX="504.0" layoutY="331.0">
          <image>
-            <Image url="@../../../../../Downloads/temperature.png" />
+            <Image url="@../../resources/img/temperature.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="45.0" fitWidth="45.0" layoutX="398.0" layoutY="330.0">
          <image>
-            <Image url="@../../../../../Downloads/brightness.png" />
+            <Image url="@../../resources/img/brightness.png" />
          </image>
       </ImageView>
       <ImageView fx:id="image1" fitHeight="35.0" fitWidth="57.0" layoutX="363.0" layoutY="91.0">
          <image>
-            <Image url="@../../../../../Downloads/piece1.png" />
+            <Image url="@../../resources/img/piece1.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="food1" fitHeight="35.0" fitWidth="35.0" layoutX="111.0" layoutY="107.0">
+      <ImageView fx:id="food1" fitHeight="35.0" fitWidth="35.0" layoutX="249.0" layoutY="118.0">
          <image>
-            <Image url="@../../../../../Downloads/food.png" />
+            <Image url="@../../resources/img/food.png" />
          </image>
       </ImageView>
       <ImageView fx:id="inventoryFood1" fitHeight="35.0" fitWidth="35.0" layoutX="153.0" layoutY="318.0">
          <image>
-            <Image url="@../../../../../Downloads/Rectangle.png" />
+            <Image url="@../../resources/img/Rectangle.png" />
          </image>
       </ImageView>
       <ImageView fx:id="inventoryImage1" fitHeight="35.0" fitWidth="35.0" layoutX="153.0" layoutY="358.0">
          <image>
-            <Image url="@../../../../../Downloads/Rectangle.png" />
+            <Image url="@../../resources/img/Rectangle.png" />
          </image>
       </ImageView>
       <ImageView fx:id="inventoryFood2" fitHeight="35.0" fitWidth="35.0" layoutX="192.0" layoutY="318.0">
          <image>
-            <Image url="@../../../../../Downloads/Rectangle.png" />
+            <Image url="@../../resources/img/Rectangle.png" />
          </image>
       </ImageView>
       <ImageView fx:id="inventoryImage2" fitHeight="35.0" fitWidth="35.0" layoutX="192.0" layoutY="358.0">
          <image>
-            <Image url="@../../../../../Downloads/Rectangle.png" />
+            <Image url="@../../resources/img/Rectangle.png" />
          </image>
       </ImageView>
       <ImageView fx:id="inventoryFood3" fitHeight="35.0" fitWidth="35.0" layoutX="231.0" layoutY="318.0">
          <image>
-            <Image url="@../../../../../Downloads/Rectangle.png" />
+            <Image url="@../../resources/img/Rectangle.png" />
          </image>
       </ImageView>
       <ImageView fx:id="inventoryImage3" fitHeight="35.0" fitWidth="35.0" layoutX="231.0" layoutY="358.0">
          <image>
-            <Image url="@../../../../../Downloads/Rectangle.png" />
+            <Image url="@../../resources/img/Rectangle.png" />
          </image>
       </ImageView>
       <ImageView fx:id="inventoryFood4" fitHeight="35.0" fitWidth="35.0" layoutX="270.0" layoutY="318.0">
          <image>
-            <Image url="@../../../../../Downloads/Rectangle.png" />
+            <Image url="@../../resources/img/Rectangle.png" />
          </image>
       </ImageView>
       <ImageView fx:id="inventoryImage4" fitHeight="35.0" fitWidth="35.0" layoutX="270.0" layoutY="358.0">
          <image>
-            <Image url="@../../../../../Downloads/Rectangle.png" />
+            <Image url="@../../resources/img/Rectangle.png" />
          </image>
       </ImageView>
    </children>
