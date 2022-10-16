@@ -12,6 +12,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.shape.Polygon;
+import javafx.scene.shape.Rectangle;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
@@ -61,10 +62,6 @@ public class Easy extends GameLayout {
 	ImageView inventoryImage3;
 	@FXML
 	ImageView inventoryImage4;
-	
-	
-    double imageX = 0;
-    double imageY = 0;
     
     public void initialiseCharacter(Class context) {
     	if (characterType == "red") {
@@ -76,6 +73,7 @@ public class Easy extends GameLayout {
     	if (characterType == "blue") {
     		character.setImage(new Image(context.getResourceAsStream("/resources/img/char3.png")));
     	}
+    	initialiseCharacterMovement(character);
     }
     
     public void setup() {
@@ -105,24 +103,6 @@ public class Easy extends GameLayout {
     }
 
 	public void run() {
-		imageX = character.getLayoutX();
-		imageY = character.getLayoutY();
-        character.getScene().addEventFilter(KeyEvent.ANY, key -> {
-            if (key.getCode().equals(KeyCode.RIGHT) && !isObstacleCollision(character, imageX + 5, imageY, obstacles)) {
-                imageX += 5;
-            } else if (key.getCode().equals(KeyCode.LEFT) && !isObstacleCollision(character, imageX - 5, imageY, obstacles)) {
-                imageX -= 5;
-            } else if (key.getCode().equals(KeyCode.DOWN) && !isObstacleCollision(character, imageX, imageY + 5, obstacles)) {
-                imageY += 5;
-            } else if (key.getCode().equals(KeyCode.UP) && !isObstacleCollision(character, imageX, imageY - 5, obstacles)) {
-                imageY -= 5;
-            }
-            character.setLayoutX(imageX);
-            character.setLayoutY(imageY);
-            handleFoodCollision(character, foods, inventoryFoods);
-            handleImageCollision(character, images, inventoryImages);
-        });
-        
-        character.setFocusTraversable(true);
+		System.out.println("Started easy mode");
 	}
 }

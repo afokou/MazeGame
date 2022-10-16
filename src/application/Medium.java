@@ -59,12 +59,36 @@ public class Medium extends GameLayout {
     	if (characterType == "blue") {
     		character.setImage(new Image(context.getResourceAsStream("/resources/img/char3.png")));
     	}
+    	initialiseCharacterMovement(character);
     }
-	
+    
     public void setup() {
+		inventoryFoods.add(inventoryFood1);
+		inventoryFoods.add(inventoryFood2);
+		inventoryFoods.add(inventoryFood3);
+		inventoryFoods.add(inventoryFood4);
+		
+		inventoryImages.add(inventoryImage1);
+		inventoryImages.add(inventoryImage2);
+		inventoryImages.add(inventoryImage3);
+		inventoryImages.add(inventoryImage4);
+		
+		obstacles.add(obstacle1);
+		obstacles.add(obstacle2);
+		obstacles.add(obstacle3);
+		obstacles.add(obstacle4);
+		obstacles.add(obstacle5);
+		obstacles.add(obstacle6);
+		obstacles.add(obstacle7);
+		obstacles.add(obstacle8);
+		obstacles.add(obstacle9);
+		obstacles.add(obstacle10);
+		
+		foods.add(food1);
+		images.add(image1);
     }
     
     public void run() {
-    	
+		System.out.println("Started medium mode");
     }
 }

@@ -7,7 +7,7 @@
 <?import javafx.scene.shape.Polygon?>
 <?import javafx.scene.shape.Rectangle?>
 
-<AnchorPane maxHeight="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #3552B8;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Easy">
+<AnchorPane maxHeight="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #3552B8;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Medium">
    <children>
 	    <ImageView fx:id="character" fitHeight="51.0" fitWidth="36.0" layoutX="37.0" layoutY="83.0" preserveRatio="true" smooth="true">
          <image>

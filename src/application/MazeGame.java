@@ -20,7 +20,6 @@ public class MazeGame extends Application
 	private GameLayout hardController;
 	
 	private String level = "easy";
-	private String character = "red";
 	
 	@Override
 	public void start(Stage primaryStage) throws Exception
@@ -72,6 +71,7 @@ public class MazeGame extends Application
 				getLevelController().characterType = "red";
 				getLevelController().initialiseCharacter(getClass());
 				primaryStage.setScene(getLevelScene());
+				getLevelController().run();
 			}
 		});
 		charactersController.char2.setPickOnBounds(true);
@@ -81,6 +81,7 @@ public class MazeGame extends Application
 				getLevelController().characterType = "yellow";
 				getLevelController().initialiseCharacter(getClass());
 				primaryStage.setScene(getLevelScene());
+				getLevelController().run();
 			}
 		});
 		charactersController.char3.setPickOnBounds(true);
@@ -90,15 +91,13 @@ public class MazeGame extends Application
 				getLevelController().characterType = "blue";
 				getLevelController().initialiseCharacter(getClass());
 				primaryStage.setScene(getLevelScene());
+				getLevelController().run();
 			}
 		});
 		
 		easyController.setup();
-		easyController.run();
 		mediumController.setup();
-		mediumController.run();
 		hardController.setup();
-		hardController.run();
 		
 		primaryStage.setTitle("Game");
 		primaryStage.setScene(startView);

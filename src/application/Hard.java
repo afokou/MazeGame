@@ -1,9 +1,13 @@
 package application;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 import javafx.fxml.FXML;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.shape.Polygon;
+import javafx.scene.shape.Rectangle;
 
 public class Hard extends GameLayout {
 	@FXML
@@ -48,6 +52,13 @@ public class Hard extends GameLayout {
 	ImageView inventoryImage3;
 	@FXML
 	ImageView inventoryImage4;
+
+	@FXML
+	Rectangle timeroverlay;
+	
+	double totalTime = 10;
+	double countdown = 10;
+	Timer timer;
 	
     public void initialiseCharacter(Class context) {
     	if (characterType == "red") {
@@ -59,12 +70,51 @@ public class Hard extends GameLayout {
     	if (characterType == "blue") {
     		character.setImage(new Image(context.getResourceAsStream("/resources/img/char3.png")));
     	}
+    	initialiseCharacterMovement(character);
     }
-	
+    
     public void setup() {
+		inventoryFoods.add(inventoryFood1);
+		inventoryFoods.add(inventoryFood2);
+		inventoryFoods.add(inventoryFood3);
+		inventoryFoods.add(inventoryFood4);
+		
+		inventoryImages.add(inventoryImage1);
+		inventoryImages.add(inventoryImage2);
+		inventoryImages.add(inventoryImage3);
+		inventoryImages.add(inventoryImage4);
+		
+		obstacles.add(obstacle1);
+		obstacles.add(obstacle2);
+		obstacles.add(obstacle3);
+		obstacles.add(obstacle4);
+		obstacles.add(obstacle5);
+		obstacles.add(obstacle6);
+		obstacles.add(obstacle7);
+		obstacles.add(obstacle8);
+		obstacles.add(obstacle9);
+		obstacles.add(obstacle10);
+		
+		foods.add(food1);
+		images.add(image1);
     }
     
     public void run() {
-    	
+		System.out.println("Started hard mode");
+	    timer = new Timer();
+	    timer.scheduleAtFixedRate(new TimerTask() {
+	        public void run() {
+	            if(countdown > 0) {
+	            	double curOpacity = (double) Math.round(countdown / totalTime * 10) / 10;
+	            	timeroverlay.setFill(new javafx.scene.paint.Color(0, 0, 0, 1.0 - curOpacity));
+	                // System.out.println("Time left: " + countdown);
+	                countdown--;
+	            }
+	            else {
+	            	System.out.println("Game over. YOU LOSE.");
+	                timer.cancel();
+	            }
+	        }
+	    }, 1000,1000);
     }
 }

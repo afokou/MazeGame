@@ -5,6 +5,8 @@ import java.util.List;
 
 import javafx.scene.Node;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 
 public abstract class GameLayout {
@@ -15,11 +17,36 @@ public abstract class GameLayout {
 	List<ImageView> images = new ArrayList<ImageView>();
 	public String characterType = "red";
 	
+    double imageX = 0;
+    double imageY = 0;
+	
 	public abstract void initialiseCharacter(Class context);
 	
 	public abstract void setup();
 	
 	public abstract void run();
+	
+	protected void initialiseCharacterMovement(ImageView character) {
+		imageX = character.getLayoutX();
+		imageY = character.getLayoutY();
+        character.getScene().addEventFilter(KeyEvent.ANY, key -> {
+            if (key.getCode().equals(KeyCode.RIGHT) && !isObstacleCollision(character, imageX + 5, imageY, obstacles)) {
+                imageX += 5;
+            } else if (key.getCode().equals(KeyCode.LEFT) && !isObstacleCollision(character, imageX - 5, imageY, obstacles)) {
+                imageX -= 5;
+            } else if (key.getCode().equals(KeyCode.DOWN) && !isObstacleCollision(character, imageX, imageY + 5, obstacles)) {
+                imageY += 5;
+            } else if (key.getCode().equals(KeyCode.UP) && !isObstacleCollision(character, imageX, imageY - 5, obstacles)) {
+                imageY -= 5;
+            }
+            character.setLayoutX(imageX);
+            character.setLayoutY(imageY);
+            handleFoodCollision(character, foods, inventoryFoods);
+            handleImageCollision(character, images, inventoryImages);
+        });
+        
+        character.setFocusTraversable(true);
+	}
 	
     public boolean isObstacleCollision(ImageView character, double imageX, double imageY, List<Node> obstacles)
     {
