@@ -44,8 +44,6 @@
       <Button fx:id="help" layoutX="687.0" layoutY="15.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="36.0" style="-fx-background-color: #ffff;" text="?" />
       <Button fx:id="home" layoutX="16.0" layoutY="18.0" mnemonicParsing="false" style="-fx-background-color: fff;" text="Back" />
       <Rectangle fill="WHITE" height="126.0" layoutX="-9.0" layoutY="319.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="750.0" />
-      
-      
       <ImageView fx:id="imageh1" fitHeight="40.0" fitWidth="30.0" layoutX="550.0" layoutY="275.0">
          <image>
             <Image url="@../../resources/img/PuzzleHard_Piece_01.png" />

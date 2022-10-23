@@ -10,6 +10,7 @@
 
 <AnchorPane maxHeight="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #3552B8;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Medium">
    <children>
+   	<Rectangle fx:id="timeroverlay" arcHeight="5.0" arcWidth="5.0" fill="TRANSPARENT" height="315.0" layoutX="-9.0" layoutY="-6.0" stroke="TRANSPARENT" strokeType="INSIDE" width="608.0" />
       <ImageView fx:id="obstacle10" fitHeight="62.0" fitWidth="60.0" layoutX="116.0" layoutY="204.0" nodeOrientation="RIGHT_TO_LEFT">
          <image>
             <Image url="@../../resources/img/tree.png" />
@@ -185,7 +186,7 @@
             <Image url="@../../resources/img/stones.png" />
          </image>
       </ImageView>
-      <ImageView layoutX="432.0" layoutY="363.0">
+      <ImageView fx:id="brightness" layoutX="432.0" layoutY="363.0">
          <image>
             <Image url="@../../resources/img/sun_full_1.png" />
          </image>

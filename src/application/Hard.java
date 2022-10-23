@@ -113,8 +113,8 @@ public class Hard extends GameLayout {
 	@FXML 
 	ImageView brightness;
 	
-	double totalTime = 10;
-	double countdown = 10;
+	double totalTime = 60;
+	double countdown = 60;
 	Timer timer;
 	
     public void initialiseCharacter(Class context) {
@@ -199,13 +199,13 @@ public class Hard extends GameLayout {
 	            	if (countdown > 46) {
 	            		brightness.setImage(new Image(context.getResourceAsStream("/resources/img/sun_full_1.png")));
 	            	} else if (countdown > 32) {
-	            		brightness.setImage(new Image(context.getResourceAsStream("/resources/img/sun_2.png")));
+	            		brightness.setImage(new Image(context.getResourceAsStream("/resources/img/sun_full_1-1.png")));
 	            	} else if (countdown > 18) {
-	            		brightness.setImage(new Image(context.getResourceAsStream("/resources/img/sun_3.png")));
+	            		brightness.setImage(new Image(context.getResourceAsStream("/resources/img/sun_full_1-2.png")));
 	            	} else if (countdown > 4) {
-	            		brightness.setImage(new Image(context.getResourceAsStream("/resources/img/sun_4.png")));
+	            		brightness.setImage(new Image(context.getResourceAsStream("/resources/img/sun_full_1-3.png")));
 	            	} else {
-	            		brightness.setImage(new Image(context.getResourceAsStream("/resources/img/sun_gone_5.png")));
+	            		brightness.setImage(new Image(context.getResourceAsStream("/resources/img/sun_full_1-4.png")));
 	            	}
 	            	
 	                countdown--;

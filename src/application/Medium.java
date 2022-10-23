@@ -1,9 +1,13 @@
 package application;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 import javafx.fxml.FXML;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.shape.Polygon;
+import javafx.scene.shape.Rectangle;
 
 public class Medium extends GameLayout {
 	@FXML
@@ -70,8 +74,18 @@ public class Medium extends GameLayout {
 	ImageView inventoryImage5;
 	@FXML
 	ImageView inventoryImage6;
+	
+	@FXML
+	Rectangle timeroverlay;
 	@FXML
 	ImageView energyBar;
+	
+	@FXML 
+	ImageView brightness;
+	
+	double totalTime = 100;
+	double countdown = 100;
+	Timer timer;
 	
     public void initialiseCharacter(Class context) {
     	if (characterType == "red") {
@@ -126,6 +140,33 @@ public class Medium extends GameLayout {
     }
     
     public void run(Class context) {
-		System.out.println("Started medium mode");
+		System.out.println("Started hard mode");
+	    timer = new Timer();
+	    timer.scheduleAtFixedRate(new TimerTask() {
+	        public void run() {
+	            if(countdown > 0) {
+	            	double curOpacity = (double) Math.round(countdown / totalTime * 10) / 10;
+	            	timeroverlay.setFill(new javafx.scene.paint.Color(0, 0, 0, 1.0 - curOpacity));
+	                // System.out.println("Time left: " + countdown);
+	            	
+	            	if (countdown > 46) {
+	            		brightness.setImage(new Image(context.getResourceAsStream("/resources/img/sun_full_1.png")));
+	            	} else if (countdown > 32) {
+	            		brightness.setImage(new Image(context.getResourceAsStream("/resources/img/sun_full_1-1.png")));
+	            	} else if (countdown > 18) {
+	            		brightness.setImage(new Image(context.getResourceAsStream("/resources/img/sun_full_1-2.png")));
+	            	} else if (countdown > 4) {
+	            		brightness.setImage(new Image(context.getResourceAsStream("/resources/img/sun_full_1-3.png")));
+	            	} else {
+	            		brightness.setImage(new Image(context.getResourceAsStream("/resources/img/sun_full_1-4.png")));
+	            	}
+	            	
+	                countdown--;
+	            }
+	            else {
+	                timer.cancel();
+	            }
+	        }
+	    }, 1000,1000);
     }
 }
