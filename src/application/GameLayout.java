@@ -109,7 +109,7 @@ public abstract class GameLayout {
                		if(isOpen != null && isOpen.equals(true)) {
             			Dragboard db = inventory.startDragAndDrop(TransferMode.ANY);
             			ClipboardContent content = new ClipboardContent();
-            			content.putImage(inventory.getImage());
+            			content.putImage(new Image(context.getResourceAsStream("/resources/img/Rectangle.png")));
             			db.setContent(content);
                       	event.consume();
                      
@@ -126,7 +126,7 @@ public abstract class GameLayout {
 
                    if (db.hasImage()) {
                 	    inventory.getProperties().put("isFood", false);
-                	    inventory.setImage(new Image(context.getResourceAsStream("/resources/img/Rectangle.png")));
+                	    inventory.setImage(new Image(context.getResourceAsStream("/resources/img/apple.png")));
                         energyBar.setImage(db.getImage());
                     }
                      event.consume(); 

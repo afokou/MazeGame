@@ -4,6 +4,8 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import javafx.event.EventHandler;
 import javafx.scene.input.MouseEvent;
@@ -68,9 +70,19 @@ public class Easy extends GameLayout {
 	ImageView inventoryImage3;
 	@FXML
 	ImageView inventoryImage4;
+	
+	@FXML
+	Rectangle timeroverlay;
 	@FXML
 	ImageView energyBar;
+
+	@FXML 
+	ImageView brightness;
 	
+	double totalTime = 150;
+	double countdown = 150;
+	Timer timer;
+
     public void initialiseCharacter(Class context) {
     	if (characterType == "red") {
     		character.setImage(new Image(context.getResourceAsStream("/resources/img/char1.png")));
@@ -115,7 +127,34 @@ public class Easy extends GameLayout {
 		images.add(imagee4);
     }
 
-	public void run(Class context) {
-		System.out.println("Started easy mode");
-	}
+    public void run(Class context) {
+		System.out.println("Started hard mode");
+	    timer = new Timer();
+	    timer.scheduleAtFixedRate(new TimerTask() {
+	        public void run() {
+	            if(countdown > 0) {
+	            	double curOpacity = (double) Math.round(countdown / totalTime * 10) / 10;
+	            	timeroverlay.setFill(new javafx.scene.paint.Color(0, 0, 0, 1.0 - curOpacity));
+	                // System.out.println("Time left: " + countdown);
+	            	
+	            	if (countdown > 46) {
+	            		brightness.setImage(new Image(context.getResourceAsStream("/resources/img/sun_full_1.png")));
+	            	} else if (countdown > 32) {
+	            		brightness.setImage(new Image(context.getResourceAsStream("/resources/img/sun_full_1-1.png")));
+	            	} else if (countdown > 18) {
+	            		brightness.setImage(new Image(context.getResourceAsStream("/resources/img/sun_full_1-2.png")));
+	            	} else if (countdown > 4) {
+	            		brightness.setImage(new Image(context.getResourceAsStream("/resources/img/sun_full_1-3.png")));
+	            	} else {
+	            		brightness.setImage(new Image(context.getResourceAsStream("/resources/img/sun_full_1-4.png")));
+	            	}
+	            	
+	                countdown--;
+	            }
+	            else {
+	                timer.cancel();
+	            }
+	        }
+	    }, 1000,1000);
+    }
 }
