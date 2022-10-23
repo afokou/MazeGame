@@ -14,6 +14,8 @@ public class Levels implements EventHandler<MouseEvent>{
 	
 	@FXML 
 	Button hardLevel;
+	@FXML
+	Button levelsInfo;
 	
 	public void initialize() {
     }

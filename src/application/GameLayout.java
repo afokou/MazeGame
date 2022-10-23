@@ -4,7 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javafx.event.EventHandler;
+import javafx.fxml.FXML;
 import javafx.scene.Node;
+import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.ClipboardContent;
@@ -17,6 +19,14 @@ import javafx.scene.input.TransferMode;
 import javafx.scene.layout.AnchorPane;
 
 public abstract class GameLayout {
+	
+	@FXML 
+	Button home;
+	
+	@FXML
+	Button help;
+	
+	
 	protected List<ImageView> inventoryFoods = new ArrayList<ImageView>();
 	protected List<ImageView> inventoryImages = new ArrayList<ImageView>();
 	List<Node> obstacles = new ArrayList<Node>();

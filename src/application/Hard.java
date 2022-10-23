@@ -13,29 +13,73 @@ public class Hard extends GameLayout {
 	@FXML
 	ImageView character;
 	@FXML
-	Polygon obstacle1;
+	ImageView obstacle1;
 	@FXML
-	Polygon obstacle2;
+	ImageView obstacle2;
 	@FXML
-	Polygon obstacle3;
+	ImageView obstacle3;
 	@FXML
-	Polygon obstacle4;
+	ImageView obstacle4;
 	@FXML
-	Polygon obstacle5;
+	ImageView obstacle5;
 	@FXML
-	Polygon obstacle6;
+	ImageView obstacle6;
 	@FXML
-	Polygon obstacle7;
+	ImageView obstacle7;
 	@FXML
-	Polygon obstacle8;
+	ImageView obstacle8;
 	@FXML
-	Polygon obstacle9;
+	ImageView obstacle9;
 	@FXML
-	Polygon obstacle10;
+	ImageView obstacle10;
 	@FXML
-	ImageView image1;
+	ImageView obstacle11;
+	@FXML
+	ImageView obstacle12;
+	@FXML
+	ImageView obstacle13;
+	@FXML
+	ImageView obstacle14;
+	@FXML
+	ImageView obstacle15;
+	@FXML
+	ImageView obstacle16;
+	@FXML
+	ImageView obstacle17;
+	@FXML
+	ImageView obstacle18;
+	@FXML
+	ImageView obstacle19;
+	@FXML
+	ImageView obstacle20;
+	@FXML
+	ImageView obstacle21;
+	@FXML
+	ImageView obstacle22;
+	//@FXML
+	//ImageView image1;
+	@FXML
+	ImageView imageh1;
+	@FXML
+	ImageView imageh2;
+	@FXML
+	ImageView imageh3;
+	@FXML
+	ImageView imageh4;
+	@FXML
+	ImageView imageh5;
+	@FXML
+	ImageView imageh6;
+	@FXML
+	ImageView imageh7;
+	@FXML
+	ImageView imageh8;
 	@FXML
 	ImageView food1;
+	@FXML
+	ImageView food2;
+	@FXML
+	ImageView food3;
 	@FXML
 	ImageView inventoryFood1;
 	@FXML
@@ -52,14 +96,25 @@ public class Hard extends GameLayout {
 	ImageView inventoryImage3;
 	@FXML
 	ImageView inventoryImage4;
+	@FXML
+	ImageView inventoryImage5;
+	@FXML
+	ImageView inventoryImage6;
+	@FXML
+	ImageView inventoryImage7;
+	@FXML
+	ImageView inventoryImage8;
 
 	@FXML
-	ImageView brightness;
-	@FXML
 	Rectangle timeroverlay;
+	@FXML
+	ImageView energyBar;
 	
-	double totalTime = 60;
-	double countdown = 60;
+	@FXML 
+	ImageView brightness;
+	
+	double totalTime = 10;
+	double countdown = 10;
 	Timer timer;
 	
     public void initialiseCharacter(Class context) {
@@ -73,10 +128,11 @@ public class Hard extends GameLayout {
     		character.setImage(new Image(context.getResourceAsStream("/resources/img/char3.png")));
     	}
     	initialiseCharacterMovement(character);
+    	dragAndDropFood(inventoryFoods, energyBar, context);
     }
     
     public void setup() {
-		inventoryFoods.add(inventoryFood1);
+    	inventoryFoods.add(inventoryFood1);
 		inventoryFoods.add(inventoryFood2);
 		inventoryFoods.add(inventoryFood3);
 		inventoryFoods.add(inventoryFood4);
@@ -85,6 +141,10 @@ public class Hard extends GameLayout {
 		inventoryImages.add(inventoryImage2);
 		inventoryImages.add(inventoryImage3);
 		inventoryImages.add(inventoryImage4);
+		inventoryImages.add(inventoryImage5);
+		inventoryImages.add(inventoryImage6);
+		inventoryImages.add(inventoryImage7);
+		inventoryImages.add(inventoryImage8);
 		
 		obstacles.add(obstacle1);
 		obstacles.add(obstacle2);
@@ -96,9 +156,30 @@ public class Hard extends GameLayout {
 		obstacles.add(obstacle8);
 		obstacles.add(obstacle9);
 		obstacles.add(obstacle10);
+		obstacles.add(obstacle11);
+		obstacles.add(obstacle12);
+		obstacles.add(obstacle13);
+		obstacles.add(obstacle14);
+		obstacles.add(obstacle15);
+		obstacles.add(obstacle16);
+		obstacles.add(obstacle17);
+		obstacles.add(obstacle18);
+		obstacles.add(obstacle19);
+		obstacles.add(obstacle20);
+		obstacles.add(obstacle21);
+		obstacles.add(obstacle22);
 		
 		foods.add(food1);
-		images.add(image1);
+		foods.add(food2);
+		foods.add(food3);
+		images.add(imageh1);
+		images.add(imageh2);
+		images.add(imageh3);
+		images.add(imageh4);
+		images.add(imageh5);
+		images.add(imageh6);
+		images.add(imageh7);
+		images.add(imageh8);
     }
     
     public void energyBarRun(Class context) {

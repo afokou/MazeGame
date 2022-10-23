@@ -23,27 +23,33 @@ public class Easy extends GameLayout {
 	@FXML
 	ImageView character;
 	@FXML
-	Polygon obstacle1;
+	ImageView obstacle1;
 	@FXML
-	Polygon obstacle2;
+	ImageView obstacle2;
 	@FXML
-	Polygon obstacle3;
+	ImageView obstacle3;
 	@FXML
-	Polygon obstacle4;
+	ImageView obstacle4;
 	@FXML
-	Polygon obstacle5;
+	ImageView obstacle5;
 	@FXML
-	Polygon obstacle6;
+	ImageView obstacle6;
 	@FXML
-	Polygon obstacle7;
+	ImageView obstacle7;
 	@FXML
-	Polygon obstacle8;
+	ImageView obstacle8;
 	@FXML
-	Polygon obstacle9;
+	ImageView obstacle9;
 	@FXML
-	Polygon obstacle10;
+	ImageView obstacle10;
 	@FXML
-	ImageView image1;
+	ImageView imagee1;
+	@FXML
+	ImageView imagee2;
+	@FXML
+	ImageView imagee3;
+	@FXML
+	ImageView imagee4;
 	@FXML
 	ImageView food1;
 	@FXML
@@ -80,7 +86,7 @@ public class Easy extends GameLayout {
     }
     
     public void setup() {
-		inventoryFoods.add(inventoryFood1);
+    	inventoryFoods.add(inventoryFood1);
 		inventoryFoods.add(inventoryFood2);
 		inventoryFoods.add(inventoryFood3);
 		inventoryFoods.add(inventoryFood4);
@@ -102,7 +108,11 @@ public class Easy extends GameLayout {
 		obstacles.add(obstacle10);
 		
 		foods.add(food1);
-		images.add(image1);
+		//images.add(image1);
+		images.add(imagee1);
+		images.add(imagee2);
+		images.add(imagee3);
+		images.add(imagee4);
     }
 
 	public void run(Class context) {
