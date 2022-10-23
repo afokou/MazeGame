@@ -32,9 +32,9 @@
             <Image url="@../../resources/img/temperature.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="45.0" fitWidth="45.0" layoutX="398.0" layoutY="330.0">
+      <ImageView fx:id="brightness" fitHeight="45.0" fitWidth="45.0" layoutX="398.0" layoutY="330.0">
          <image>
-            <Image url="@../../resources/img/brightness.png" />
+            <Image url="@../../resources/img/sun_full_1.png" />
          </image>
       </ImageView>
       <ImageView fx:id="image1" fitHeight="35.0" fitWidth="57.0" layoutX="363.0" layoutY="91.0">

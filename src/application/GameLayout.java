@@ -3,10 +3,17 @@ package application;
 import java.util.ArrayList;
 import java.util.List;
 
+import javafx.event.EventHandler;
 import javafx.scene.Node;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.ClipboardContent;
+import javafx.scene.input.DragEvent;
+import javafx.scene.input.Dragboard;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.input.TransferMode;
 import javafx.scene.layout.AnchorPane;
 
 public abstract class GameLayout {
@@ -24,7 +31,7 @@ public abstract class GameLayout {
 	
 	public abstract void setup();
 	
-	public abstract void run();
+	public abstract void run(Class context);
 	
 	protected void initialiseCharacterMovement(ImageView character) {
 		imageX = character.getLayoutX();
@@ -77,11 +84,47 @@ public abstract class GameLayout {
 	            
 	            ImageView inventoryFood = inventoryFoods.get(number - 1);
 	            inventoryFood.setImage(food.getImage());
+	            inventoryFood.getProperties().put("isFood", true);
 	            
 	            break;
 	        }
     	}
     }
+    
+    public void dragAndDropFood(List<ImageView> inventoryFoods, ImageView energyBar, Class context) {
+    	for(ImageView inventory : inventoryFoods ) {
+        	inventory.setOnDragDetected(new EventHandler<MouseEvent> () {
+                   public void handle(MouseEvent event) {
+                	Object isOpen = inventory.getProperties().get("isFood");
+               		if(isOpen != null && isOpen.equals(true)) {
+            			Dragboard db = inventory.startDragAndDrop(TransferMode.ANY);
+            			ClipboardContent content = new ClipboardContent();
+            			content.putImage(inventory.getImage());
+            			db.setContent(content);
+                      	event.consume();
+                     
+                      	
+           			}
+                   }
+               });
+        	
+        	
+            inventory.setOnDragDone(new EventHandler<DragEvent>() {
+                public void handle(DragEvent event) {
+
+                    Dragboard db = event.getDragboard();
+
+                   if (db.hasImage()) {
+                	    inventory.getProperties().put("isFood", false);
+                	    inventory.setImage(new Image(context.getResourceAsStream("/resources/img/Rectangle.png")));
+                        energyBar.setImage(db.getImage());
+                    }
+                     event.consume(); 
+
+                }
+            });
+        }
+       }
     
     public void handleImageCollision(ImageView character, List<ImageView> images, List<ImageView> inventoryImages)
     {

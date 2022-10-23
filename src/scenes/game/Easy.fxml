@@ -27,7 +27,7 @@
       <Polygon fx:id="obstacle1" fill="WHITE" layoutX="35.0" layoutY="181.0" points="39.50749206542969, 48.40196228027344, 56.110504150390625, 75.0, 20.532623291015625, 75.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
       <Polygon fx:id="obstacle10" fill="WHITE" layoutX="443.0" layoutY="60.0" points="39.50749206542969, 48.40196228027344, 56.110504150390625, 75.0, 20.532623291015625, 75.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
       <Rectangle fill="WHITE" height="90.0" layoutY="310.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="600.0" />
-      <ImageView fitHeight="45.0" fitWidth="45.0" layoutX="504.0" layoutY="331.0">
+      <ImageView fx:id="energyBar" fitHeight="45.0" fitWidth="45.0" layoutX="504.0" layoutY="331.0">
          <image>
             <Image url="@../../resources/img/temperature.png" />
          </image>

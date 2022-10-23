@@ -62,6 +62,8 @@ public class Easy extends GameLayout {
 	ImageView inventoryImage3;
 	@FXML
 	ImageView inventoryImage4;
+	@FXML
+	ImageView energyBar;
     
     public void initialiseCharacter(Class context) {
     	if (characterType == "red") {
@@ -74,6 +76,7 @@ public class Easy extends GameLayout {
     		character.setImage(new Image(context.getResourceAsStream("/resources/img/char3.png")));
     	}
     	initialiseCharacterMovement(character);
+    	dragAndDropFood(inventoryFoods, energyBar, context);
     }
     
     public void setup() {
@@ -102,7 +105,7 @@ public class Easy extends GameLayout {
 		images.add(image1);
     }
 
-	public void run() {
+	public void run(Class context) {
 		System.out.println("Started easy mode");
 	}
 }

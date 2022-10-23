@@ -71,7 +71,7 @@ public class MazeGame extends Application
 				getLevelController().characterType = "red";
 				getLevelController().initialiseCharacter(getClass());
 				primaryStage.setScene(getLevelScene());
-				getLevelController().run();
+				getLevelController().run(getClass());
 			}
 		});
 		charactersController.char2.setPickOnBounds(true);
@@ -81,7 +81,7 @@ public class MazeGame extends Application
 				getLevelController().characterType = "yellow";
 				getLevelController().initialiseCharacter(getClass());
 				primaryStage.setScene(getLevelScene());
-				getLevelController().run();
+				getLevelController().run(getClass());
 			}
 		});
 		charactersController.char3.setPickOnBounds(true);
@@ -91,7 +91,7 @@ public class MazeGame extends Application
 				getLevelController().characterType = "blue";
 				getLevelController().initialiseCharacter(getClass());
 				primaryStage.setScene(getLevelScene());
-				getLevelController().run();
+				getLevelController().run(getClass());
 			}
 		});
 		

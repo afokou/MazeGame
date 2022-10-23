@@ -88,7 +88,7 @@ public class Medium extends GameLayout {
 		images.add(image1);
     }
     
-    public void run() {
+    public void run(Class context) {
 		System.out.println("Started medium mode");
     }
 }

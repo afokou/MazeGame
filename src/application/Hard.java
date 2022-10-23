@@ -54,10 +54,12 @@ public class Hard extends GameLayout {
 	ImageView inventoryImage4;
 
 	@FXML
+	ImageView brightness;
+	@FXML
 	Rectangle timeroverlay;
 	
-	double totalTime = 10;
-	double countdown = 10;
+	double totalTime = 60;
+	double countdown = 60;
 	Timer timer;
 	
     public void initialiseCharacter(Class context) {
@@ -99,7 +101,11 @@ public class Hard extends GameLayout {
 		images.add(image1);
     }
     
-    public void run() {
+    public void energyBarRun(Class context) {
+		
+    }
+    
+    public void run(Class context) {
 		System.out.println("Started hard mode");
 	    timer = new Timer();
 	    timer.scheduleAtFixedRate(new TimerTask() {
@@ -108,10 +114,22 @@ public class Hard extends GameLayout {
 	            	double curOpacity = (double) Math.round(countdown / totalTime * 10) / 10;
 	            	timeroverlay.setFill(new javafx.scene.paint.Color(0, 0, 0, 1.0 - curOpacity));
 	                // System.out.println("Time left: " + countdown);
+	            	
+	            	if (countdown > 46) {
+	            		brightness.setImage(new Image(context.getResourceAsStream("/resources/img/sun_full_1.png")));
+	            	} else if (countdown > 32) {
+	            		brightness.setImage(new Image(context.getResourceAsStream("/resources/img/sun_2.png")));
+	            	} else if (countdown > 18) {
+	            		brightness.setImage(new Image(context.getResourceAsStream("/resources/img/sun_3.png")));
+	            	} else if (countdown > 4) {
+	            		brightness.setImage(new Image(context.getResourceAsStream("/resources/img/sun_4.png")));
+	            	} else {
+	            		brightness.setImage(new Image(context.getResourceAsStream("/resources/img/sun_gone_5.png")));
+	            	}
+	            	
 	                countdown--;
 	            }
 	            else {
-	            	System.out.println("Game over. YOU LOSE.");
 	                timer.cancel();
 	            }
 	        }
