@@ -154,7 +154,7 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </Text>
-      <ImageView layoutX="533.0" layoutY="340.0">
+      <ImageView fx:id="energyBar" layoutX="533.0" layoutY="340.0">
          <image>
             <Image url="@../../resources/img/energy_full_5.png" />
          </image>

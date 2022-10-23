@@ -109,11 +109,9 @@ public abstract class GameLayout {
                		if(isOpen != null && isOpen.equals(true)) {
             			Dragboard db = inventory.startDragAndDrop(TransferMode.ANY);
             			ClipboardContent content = new ClipboardContent();
-            			content.putImage(new Image(context.getResourceAsStream("/resources/img/Rectangle.png")));
+            			content.putImage(new Image(context.getResourceAsStream("/resources/img/energy_full_5.png")));
             			db.setContent(content);
                       	event.consume();
-                     
-                      	
            			}
                    }
                });
@@ -126,8 +124,8 @@ public abstract class GameLayout {
 
                    if (db.hasImage()) {
                 	    inventory.getProperties().put("isFood", false);
-                	    inventory.setImage(new Image(context.getResourceAsStream("/resources/img/apple.png")));
-                        energyBar.setImage(db.getImage());
+                	    inventory.setImage(new Image(context.getResourceAsStream("/resources/img/Rectangle.png")));
+                        energyBar.setImage(new Image(context.getResourceAsStream("/resources/img/energy_full_5.png")));
                     }
                      event.consume(); 
 
