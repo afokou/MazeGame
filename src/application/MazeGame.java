@@ -76,15 +76,27 @@ public class MazeGame extends Application
         });
 		
 		easyController.home.setOnAction(e -> {
-			primaryStage.setScene(startView);
+			try {
+				MazeGame.main.startGame();
+			} catch (Exception e1) {
+				e1.printStackTrace();
+			}
         });
 		
 		mediumController.home.setOnAction(e -> {
-			primaryStage.setScene(startView);
+			try {
+				MazeGame.main.startGame();
+			} catch (Exception e1) {
+				e1.printStackTrace();
+			}
         });
 		
 		hardController.home.setOnAction(e -> {
-			primaryStage.setScene(startView);
+			try {
+				MazeGame.main.startGame();
+			} catch (Exception e1) {
+				e1.printStackTrace();
+			}
         });
 		
 		easyController.help.setOnAction(e -> {
