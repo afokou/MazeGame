@@ -20,6 +20,6 @@
             <Font size="26.0" />
          </font>
       </Text>
-      <Button layoutX="550.0" layoutY="14.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="36.0" style="-fx-background-color: #ffff;" text="?" />
+      <Button fx:id="levelsInfo" layoutX="550.0" layoutY="14.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="36.0" style="-fx-background-color: #ffff;" text="?" />
    </children>
 </AnchorPane>

@@ -4,89 +4,284 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.shape.Polygon?>
 <?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #3552B8;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Hard">
+<AnchorPane maxHeight="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #3552B8;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Hard">
    <children>
-	    <ImageView fx:id="character" fitHeight="51.0" fitWidth="36.0" layoutX="37.0" layoutY="83.0" preserveRatio="true" smooth="true">
+      <Rectangle fx:id="timeroverlay" arcHeight="5.0" arcWidth="5.0" fill="TRANSPARENT" height="314.0" layoutX="-9.0" layoutY="5.0" stroke="TRANSPARENT" strokeType="INSIDE" width="750.0" />
+      <ImageView fx:id="obstacle13" fitHeight="71.0" fitWidth="72.0" layoutX="-7.0" layoutY="204.0">
+         <image>
+            <Image url="@../../resources/img/tree.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imageh4" fitHeight="40.0" fitWidth="30.0" layoutX="117.0" layoutY="24.0">
+         <image>
+            <Image url="@../../resources/img/PuzzleHard_Piece_04.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="obstacle6" fitHeight="35.0" fitWidth="53.0" layoutX="197.0" layoutY="71.0" nodeOrientation="RIGHT_TO_LEFT">
+         <image>
+            <Image url="@../../resources/img/stones.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="obstacle17" fitHeight="45.0" fitWidth="60.0" layoutX="228.0" layoutY="217.0">
+         <image>
+            <Image url="@../../resources/img/stones.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="obstacle1" fitHeight="81.0" fitWidth="45.0" layoutX="77.0" layoutY="-1.0">
+         <image>
+            <Image url="@../../resources/img/tree.png" />
+         </image>
+      </ImageView>
+	    <ImageView fx:id="character" fitHeight="51.0" fitWidth="36.0" layoutX="29.0" layoutY="85.0" preserveRatio="true" smooth="true">
          <image>
             <Image url="@../../resources/img/char1.png" />
          </image>
 	    </ImageView>
-      <Button layoutX="550.0" layoutY="14.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="36.0" style="-fx-background-color: #ffff;" text="?" />
-      <Button layoutX="16.0" layoutY="18.0" mnemonicParsing="false" style="-fx-background-color: fff;" text="Back" />
-      <Polygon fx:id="obstacle3" fill="WHITE" layoutX="138.0" layoutY="49.0" points="39.50749206542969, 48.40196228027344, 56.110504150390625, 75.0, 20.532623291015625, 75.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
-      <Polygon fx:id="obstacle7" fill="WHITE" layoutX="325.0" layoutY="109.0" points="39.50749206542969, 48.40196228027344, 56.110504150390625, 75.0, 20.532623291015625, 75.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
-      <Polygon fx:id="obstacle2" fill="WHITE" layoutX="51.0" layoutY="108.0" points="39.50749206542969, 48.40196228027344, 56.110504150390625, 75.0, 20.532623291015625, 75.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
-      <Polygon fx:id="obstacle9" fill="WHITE" layoutX="442.0" layoutY="168.0" points="39.50749206542969, 48.40196228027344, 56.110504150390625, 75.0, 20.532623291015625, 75.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
-      <Polygon fx:id="obstacle6" fill="WHITE" layoutX="265.0" layoutY="207.0" points="39.50749206542969, 48.40196228027344, 56.110504150390625, 75.0, 20.532623291015625, 75.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
-      <Polygon fx:id="obstacle8" fill="WHITE" layoutX="361.0" layoutY="207.0" points="39.50749206542969, 48.40196228027344, 56.110504150390625, 75.0, 20.532623291015625, 75.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
-      <Polygon fx:id="obstacle5" fill="WHITE" layoutX="261.0" layoutY="11.0" points="39.50749206542969, 48.40196228027344, 56.110504150390625, 75.0, 20.532623291015625, 75.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
-      <Polygon fx:id="obstacle4" fill="WHITE" layoutX="166.0" layoutY="139.0" points="39.50749206542969, 48.40196228027344, 56.110504150390625, 75.0, 20.532623291015625, 75.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
-      <Polygon fx:id="obstacle1" fill="WHITE" layoutX="35.0" layoutY="181.0" points="39.50749206542969, 48.40196228027344, 56.110504150390625, 75.0, 20.532623291015625, 75.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
-      <Polygon fx:id="obstacle10" fill="WHITE" layoutX="443.0" layoutY="60.0" points="39.50749206542969, 48.40196228027344, 56.110504150390625, 75.0, 20.532623291015625, 75.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
-      <Rectangle fill="WHITE" height="90.0" layoutY="310.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="600.0" />
-      <ImageView fitHeight="45.0" fitWidth="45.0" layoutX="504.0" layoutY="331.0">
+      <Button fx:id="help" layoutX="687.0" layoutY="15.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="36.0" style="-fx-background-color: #ffff;" text="?" />
+      <Button fx:id="home" layoutX="16.0" layoutY="18.0" mnemonicParsing="false" style="-fx-background-color: fff;" text="Back" />
+      <Rectangle fill="WHITE" height="126.0" layoutX="-9.0" layoutY="319.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="750.0" />
+      
+      
+      <ImageView fx:id="imageh1" fitHeight="40.0" fitWidth="30.0" layoutX="550.0" layoutY="275.0">
          <image>
-            <Image url="@../../resources/img/temperature.png" />
+            <Image url="@../../resources/img/PuzzleHard_Piece_01.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="brightness" fitHeight="45.0" fitWidth="45.0" layoutX="398.0" layoutY="330.0">
+      <ImageView fx:id="imageh2" fitHeight="40.0" fitWidth="30.0" layoutX="390.0" layoutY="155.0">
+         <image>
+            <Image url="@../../resources/img/PuzzleHard_Piece_02.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imageh3" fitHeight="40.0" fitWidth="30.0" layoutX="609.0" layoutY="19.0">
+         <image>
+            <Image url="@../../resources/img/PuzzleHard_Piece_03.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imageh5" fitHeight="40.0" fitWidth="30.0" layoutX="198.0" layoutY="275.0">
+         <image>
+            <Image url="@../../resources/img/PuzzleHard_Piece_05.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imageh6" fitHeight="40.0" fitWidth="30.0" layoutX="23.0" layoutY="255.0">
+         <image>
+            <Image url="@../../resources/img/PuzzleHard_Piece_06.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imageh7" fitHeight="40.0" fitWidth="30.0" layoutX="383.0" layoutY="39.0">
+         <image>
+            <Image url="@../../resources/img/PuzzleHard_Piece_07.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imageh8" fitHeight="40.0" fitWidth="30.0" layoutX="690.0" layoutY="248.0">
+         <image>
+            <Image url="@../../resources/img/PuzzleHard_Piece_08.png" />
+         </image>
+      </ImageView>
+      
+      
+      <ImageView fx:id="food1" fitHeight="35.0" fitWidth="35.0" layoutX="64.0" layoutY="162.0">
+         <image>
+            <Image url="@../../resources/img/apple.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="inventoryFood1" fitHeight="35.0" fitWidth="35.0" layoutX="38.0" layoutY="357.0">
+         <image>
+            <Image url="@../../resources/img/Rectangle.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="inventoryImage1" fitHeight="40.0" fitWidth="30.0" layoutX="153.0" layoutY="355.0">
+         <image>
+            <Image url="@../../resources/img/Rectangle.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="inventoryFood2" fitHeight="35.0" fitWidth="35.0" layoutX="81.0" layoutY="357.0">
+         <image>
+            <Image url="@../../resources/img/Rectangle.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="inventoryImage2" fitHeight="40.0" fitWidth="30.0" layoutX="183.0" layoutY="355.0">
+         <image>
+            <Image url="@../../resources/img/Rectangle.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="inventoryFood3" fitHeight="35.0" fitWidth="35.0" layoutX="38.0" layoutY="399.0">
+         <image>
+            <Image url="@../../resources/img/Rectangle.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="inventoryImage3" fitHeight="40.0" fitWidth="30.0" layoutX="213.0" layoutY="355.0">
+         <image>
+            <Image url="@../../resources/img/Rectangle.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="inventoryFood4" fitHeight="35.0" fitWidth="35.0" layoutX="81.0" layoutY="399.0">
+         <image>
+            <Image url="@../../resources/img/Rectangle.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="inventoryImage4" fitHeight="40.0" fitWidth="30.0" layoutX="243.0" layoutY="355.0">
+         <image>
+            <Image url="@../../resources/img/Rectangle.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="inventoryImage5" fitHeight="40.0" fitWidth="30.0" layoutX="153.0" layoutY="395.0">
+         <image>
+            <Image url="@../../resources/img/Rectangle.png" />
+         </image>
+      </ImageView>
+          <ImageView fx:id="inventoryImage6" fitHeight="40.0" fitWidth="30.0" layoutX="183.0" layoutY="395.0">
+         <image>
+            <Image url="@../../resources/img/Rectangle.png" />
+         </image>
+      </ImageView>
+          <ImageView fx:id="inventoryImage7" fitHeight="40.0" fitWidth="30.0" layoutX="213.0" layoutY="395.0">
+         <image>
+            <Image url="@../../resources/img/Rectangle.png" />
+         </image>
+      </ImageView>
+          <ImageView fx:id="inventoryImage8" fitHeight="40.0" fitWidth="30.0" layoutX="243.0" layoutY="395.0">
+         <image>
+            <Image url="@../../resources/img/Rectangle.png" />
+         </image>
+      </ImageView>
+      <Text fill="#094804" layoutX="33.0" layoutY="348.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Food Inventory" wrappingWidth="93.33673095703125">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Text>
+      <Text fill="#62288c" layoutX="165.0" layoutY="348.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Puzzle Box" textAlignment="CENTER" wrappingWidth="93.33673095703125">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Text>
+      <ImageView fx:id="food2" fitHeight="35.0" fitWidth="35.0" layoutX="410.0" layoutY="2.0">
+         <image>
+            <Image url="@../../resources/img/apple.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="food3" fitHeight="35.0" fitWidth="35.0" layoutX="477.0" layoutY="239.0">
+         <image>
+            <Image url="@../../resources/img/apple.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="obstacle19" fitHeight="71.0" fitWidth="72.0" layoutX="494.0" layoutY="220.0">
+         <image>
+            <Image url="@../../resources/img/tree.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="obstacle2" fitHeight="81.0" fitWidth="93.0" layoutX="70.0" layoutY="33.0">
+         <image>
+            <Image url="@../../resources/img/tree.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="obstacle4" fitHeight="71.0" fitWidth="60.0" layoutX="123.0" layoutY="56.0">
+         <image>
+            <Image url="@../../resources/img/tree.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="obstacle3" fitHeight="71.0" fitWidth="72.0" layoutX="80.0" layoutY="79.0">
+         <image>
+            <Image url="@../../resources/img/tree.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="obstacle7" fitHeight="71.0" fitWidth="72.0" layoutX="311.0" layoutY="2.0">
+         <image>
+            <Image url="@../../resources/img/tree.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="obstacle5" fitHeight="56.0" fitWidth="53.0" layoutX="168.0" layoutY="95.0">
+         <image>
+            <Image url="@../../resources/img/tree.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="obstacle8" fitHeight="71.0" fitWidth="72.0" layoutX="347.0" layoutY="56.0" nodeOrientation="RIGHT_TO_LEFT">
+         <image>
+            <Image url="@../../resources/img/tree.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="obstacle8" fitHeight="71.0" fitWidth="72.0" layoutX="530.0" layoutY="12.0" nodeOrientation="RIGHT_TO_LEFT">
+         <image>
+            <Image url="@../../resources/img/tree.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="obstacle9" fitHeight="71.0" fitWidth="72.0" layoutX="565.0" layoutY="38.0">
+         <image>
+            <Image url="@../../resources/img/tree.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="obstacle22" fitHeight="71.0" fitWidth="72.0" layoutX="669.0" layoutY="178.0">
+         <image>
+            <Image url="@../../resources/img/tree.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="obstacle21" fitHeight="71.0" fitWidth="72.0" layoutX="639.0" layoutY="187.0" nodeOrientation="RIGHT_TO_LEFT">
+         <image>
+            <Image url="@../../resources/img/tree.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="obstacle16" fitHeight="45.0" fitWidth="60.0" layoutX="213.0" layoutY="226.0" nodeOrientation="RIGHT_TO_LEFT">
+         <image>
+            <Image url="@../../resources/img/stones.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="obstacle11" fitHeight="45.0" fitWidth="60.0" layoutX="336.0" layoutY="140.0" nodeOrientation="RIGHT_TO_LEFT">
+         <image>
+            <Image url="@../../resources/img/stones.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="obstacle20" fitHeight="45.0" fitWidth="60.0" layoutX="482.0" layoutY="273.0" nodeOrientation="RIGHT_TO_LEFT">
+         <image>
+            <Image url="@../../resources/img/stones.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="obstacle12" fitHeight="45.0" fitWidth="60.0" layoutX="360.0" layoutY="165.0">
+         <image>
+            <Image url="@../../resources/img/stones.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="obstacle10" fitHeight="45.0" fitWidth="60.0" layoutX="579.0" layoutY="91.0">
+         <image>
+            <Image url="@../../resources/img/stones.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="energyBar" layoutX="658.0" layoutY="351.0">
+         <image>
+            <Image url="@../../resources/img/energy_full_5.png" />
+         </image>
+      </ImageView>
+      <Text fill="#df8e43" layoutX="503.0" layoutY="350.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Daylight" textAlignment="CENTER" wrappingWidth="93.33673095703125">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Text>
+      <Text fill="#b518ba" layoutX="629.0" layoutY="339.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Energy" textAlignment="CENTER" wrappingWidth="93.33673095703125">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Text>
+      <ImageView fx:id="brightness" layoutX="528.0" layoutY="369.0">
          <image>
             <Image url="@../../resources/img/sun_full_1.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="image1" fitHeight="35.0" fitWidth="57.0" layoutX="363.0" layoutY="91.0">
+      <ImageView fx:id="obstacle15" fitHeight="71.0" fitWidth="72.0" layoutX="168.0" layoutY="213.0">
          <image>
-            <Image url="@../../resources/img/piece1.png" />
+            <Image url="@../../resources/img/tree.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="food1" fitHeight="35.0" fitWidth="35.0" layoutX="249.0" layoutY="118.0">
+      <ImageView fx:id="obstacle14" fitHeight="71.0" fitWidth="72.0" layoutX="132.0" layoutY="253.0" nodeOrientation="RIGHT_TO_LEFT">
          <image>
-            <Image url="@../../resources/img/food.png" />
+            <Image url="@../../resources/img/tree.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="inventoryFood1" fitHeight="35.0" fitWidth="35.0" layoutX="153.0" layoutY="318.0">
+      <ImageView fx:id="obstacle18" fitHeight="56.0" fitWidth="53.0" layoutX="347.0" layoutY="251.0">
          <image>
-            <Image url="@../../resources/img/Rectangle.png" />
+            <Image url="@../../resources/img/tree.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="inventoryImage1" fitHeight="35.0" fitWidth="35.0" layoutX="153.0" layoutY="358.0">
-         <image>
-            <Image url="@../../resources/img/Rectangle.png" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="inventoryFood2" fitHeight="35.0" fitWidth="35.0" layoutX="192.0" layoutY="318.0">
-         <image>
-            <Image url="@../../resources/img/Rectangle.png" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="inventoryImage2" fitHeight="35.0" fitWidth="35.0" layoutX="192.0" layoutY="358.0">
-         <image>
-            <Image url="@../../resources/img/Rectangle.png" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="inventoryFood3" fitHeight="35.0" fitWidth="35.0" layoutX="231.0" layoutY="318.0">
-         <image>
-            <Image url="@../../resources/img/Rectangle.png" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="inventoryImage3" fitHeight="35.0" fitWidth="35.0" layoutX="231.0" layoutY="358.0">
-         <image>
-            <Image url="@../../resources/img/Rectangle.png" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="inventoryFood4" fitHeight="35.0" fitWidth="35.0" layoutX="270.0" layoutY="318.0">
-         <image>
-            <Image url="@../../resources/img/Rectangle.png" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="inventoryImage4" fitHeight="35.0" fitWidth="35.0" layoutX="270.0" layoutY="358.0">
-         <image>
-            <Image url="@../../resources/img/Rectangle.png" />
-         </image>
-      </ImageView>
-      <Rectangle fx:id="timeroverlay" arcHeight="5.0" arcWidth="5.0" fill="TRANSPARENT" height="314.0" layoutY="-3.0" stroke="TRANSPARENT" strokeType="INSIDE" width="600.0" />
    </children>
 </AnchorPane>

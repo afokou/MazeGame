@@ -9,29 +9,47 @@ public class Medium extends GameLayout {
 	@FXML
 	ImageView character;
 	@FXML
-	Polygon obstacle1;
+	ImageView obstacle1;
 	@FXML
-	Polygon obstacle2;
+	ImageView obstacle2;
 	@FXML
-	Polygon obstacle3;
+	ImageView obstacle3;
 	@FXML
-	Polygon obstacle4;
+	ImageView obstacle4;
 	@FXML
-	Polygon obstacle5;
+	ImageView obstacle5;
 	@FXML
-	Polygon obstacle6;
+	ImageView obstacle6;
 	@FXML
-	Polygon obstacle7;
+	ImageView obstacle7;
 	@FXML
-	Polygon obstacle8;
+	ImageView obstacle8;
 	@FXML
-	Polygon obstacle9;
+	ImageView obstacle9;
 	@FXML
-	Polygon obstacle10;
+	ImageView obstacle10;
 	@FXML
-	ImageView image1;
+	ImageView obstacle11;
+	@FXML
+	ImageView obstacle12;
+	@FXML
+	ImageView imagem1;
+	@FXML
+	ImageView imagem2;
+	@FXML
+	ImageView imagem3;
+	@FXML
+	ImageView imagem4;
+	@FXML
+	ImageView imagem5;
+	@FXML
+	ImageView imagem6;
 	@FXML
 	ImageView food1;
+	@FXML
+	ImageView food2;	
+	@FXML
+	ImageView food3;
 	@FXML
 	ImageView inventoryFood1;
 	@FXML
@@ -48,6 +66,12 @@ public class Medium extends GameLayout {
 	ImageView inventoryImage3;
 	@FXML
 	ImageView inventoryImage4;
+	@FXML
+	ImageView inventoryImage5;
+	@FXML
+	ImageView inventoryImage6;
+	@FXML
+	ImageView energyBar;
 	
     public void initialiseCharacter(Class context) {
     	if (characterType == "red") {
@@ -60,10 +84,11 @@ public class Medium extends GameLayout {
     		character.setImage(new Image(context.getResourceAsStream("/resources/img/char3.png")));
     	}
     	initialiseCharacterMovement(character);
+    	dragAndDropFood(inventoryFoods, energyBar, context);
     }
     
     public void setup() {
-		inventoryFoods.add(inventoryFood1);
+    	inventoryFoods.add(inventoryFood1);
 		inventoryFoods.add(inventoryFood2);
 		inventoryFoods.add(inventoryFood3);
 		inventoryFoods.add(inventoryFood4);
@@ -72,6 +97,8 @@ public class Medium extends GameLayout {
 		inventoryImages.add(inventoryImage2);
 		inventoryImages.add(inventoryImage3);
 		inventoryImages.add(inventoryImage4);
+		inventoryImages.add(inventoryImage5);
+		inventoryImages.add(inventoryImage6);
 		
 		obstacles.add(obstacle1);
 		obstacles.add(obstacle2);
@@ -83,9 +110,19 @@ public class Medium extends GameLayout {
 		obstacles.add(obstacle8);
 		obstacles.add(obstacle9);
 		obstacles.add(obstacle10);
+		obstacles.add(obstacle11);
+		obstacles.add(obstacle12);
+
 		
 		foods.add(food1);
-		images.add(image1);
+		foods.add(food2);
+		foods.add(food3);
+		images.add(imagem1);
+		images.add(imagem2);
+		images.add(imagem3);
+		images.add(imagem4);
+		images.add(imagem5);
+		images.add(imagem6);
     }
     
     public void run(Class context) {

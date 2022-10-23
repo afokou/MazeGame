@@ -10,6 +10,9 @@ public class Intro implements EventHandler<MouseEvent>{
 	@FXML
 	Button start;
 	
+	@FXML 
+	Button infoStart;
+	
     public void initialize() {
     }
 
