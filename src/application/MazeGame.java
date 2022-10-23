@@ -4,6 +4,8 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.input.MouseEvent;
 import javafx.event.Event;
@@ -63,6 +65,50 @@ public class MazeGame extends Application
 			level = "hard";
 			primaryStage.setScene(charactersView);
         });
+		
+		easyController.home.setOnAction(e -> {
+			primaryStage.setScene(startView);
+        });
+		
+		mediumController.home.setOnAction(e -> {
+			primaryStage.setScene(startView);
+        });
+		
+		hardController.home.setOnAction(e -> {
+			primaryStage.setScene(startView);
+        });
+		
+		easyController.help.setOnAction(e -> {
+			Alert alert = new Alert(AlertType.INFORMATION);
+			alert.setContentText("information");
+			alert.show();
+        });
+		
+		mediumController.help.setOnAction(e -> {
+			Alert alert = new Alert(AlertType.INFORMATION);
+			alert.setContentText("information");
+			alert.show();
+        });
+		
+		hardController.help.setOnAction(e -> {
+			Alert alert = new Alert(AlertType.INFORMATION);
+			alert.setContentText("information");
+			alert.show();
+        });
+		
+		
+		introController.infoStart.setOnAction(e -> {
+			Alert alert = new Alert(AlertType.INFORMATION);
+			alert.setContentText("information");
+			alert.show();
+        });
+		
+		levelsController.levelsInfo.setOnAction(e -> {
+			Alert alert = new Alert(AlertType.INFORMATION);
+			alert.setContentText("information");
+			alert.show();
+        });
+		
 		
 		charactersController.char1.setPickOnBounds(true);
 		charactersController.char1.setOnMouseClicked(new EventHandler() {
