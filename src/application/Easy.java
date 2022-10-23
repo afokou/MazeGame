@@ -64,7 +64,7 @@ public class Easy extends GameLayout {
 	ImageView inventoryImage4;
 	@FXML
 	ImageView energyBar;
-    
+	
     public void initialiseCharacter(Class context) {
     	if (characterType == "red") {
     		character.setImage(new Image(context.getResourceAsStream("/resources/img/char1.png")));
