@@ -75,14 +75,14 @@ public class Easy extends GameLayout {
 	Rectangle timeroverlay;
 	@FXML
 	ImageView energyBar;
-	
+
 	@FXML 
 	ImageView brightness;
 	
 	double totalTime = 150;
 	double countdown = 150;
 	Timer timer;
-	
+
     public void initialiseCharacter(Class context) {
     	if (characterType == "red") {
     		character.setImage(new Image(context.getResourceAsStream("/resources/img/char1.png")));

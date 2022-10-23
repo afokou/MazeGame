@@ -3,6 +3,7 @@ package application;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
@@ -13,6 +14,8 @@ import javafx.event.EventHandler;
 
 public class MazeGame extends Application 
 {
+    public static Stage primaryStage;
+    public static MazeGame main;
 	private Scene startView, levelsView, charactersView, easyView, mediumView, hardView;
 	private Intro introController;
 	private Levels levelsController;
@@ -24,7 +27,13 @@ public class MazeGame extends Application
 	private String level = "easy";
 	
 	@Override
-	public void start(Stage primaryStage) throws Exception
+	public void start(Stage primaryStage) throws Exception {
+        MazeGame.primaryStage = primaryStage;
+        MazeGame.main = this;
+        startGame();
+	}
+
+	public void startGame() throws Exception
 	{
 		FXMLLoader start = new FXMLLoader(getClass().getResource("/scenes/Intro/Intro.fxml"));
 		FXMLLoader levels = new FXMLLoader(getClass().getResource("/scenes/Intro/Levels.fxml"));
@@ -67,15 +76,27 @@ public class MazeGame extends Application
         });
 		
 		easyController.home.setOnAction(e -> {
-			primaryStage.setScene(startView);
+			try {
+				MazeGame.main.startGame();
+			} catch (Exception e1) {
+				e1.printStackTrace();
+			}
         });
 		
 		mediumController.home.setOnAction(e -> {
-			primaryStage.setScene(startView);
+			try {
+				MazeGame.main.startGame();
+			} catch (Exception e1) {
+				e1.printStackTrace();
+			}
         });
 		
 		hardController.home.setOnAction(e -> {
-			primaryStage.setScene(startView);
+			try {
+				MazeGame.main.startGame();
+			} catch (Exception e1) {
+				e1.printStackTrace();
+			}
         });
 		
 		easyController.help.setOnAction(e -> {
