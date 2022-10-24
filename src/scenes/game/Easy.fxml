@@ -8,7 +8,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #3552B8;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Easy">
+<AnchorPane fx:id="easyGame" maxHeight="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #3552B8;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Easy">
    <children>
    	<Rectangle fx:id="timeroverlay" arcHeight="5.0" arcWidth="5.0" fill="TRANSPARENT" height="318.0" layoutX="-9.0" layoutY="-7.0" stroke="TRANSPARENT" strokeType="INSIDE" width="610.0" />
 	    <ImageView fx:id="character" fitHeight="51.0" fitWidth="36.0" layoutX="37.0" layoutY="83.0" preserveRatio="true" smooth="true">

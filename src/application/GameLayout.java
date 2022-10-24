@@ -110,6 +110,7 @@ public abstract class GameLayout {
             			Dragboard db = inventory.startDragAndDrop(TransferMode.ANY);
             			ClipboardContent content = new ClipboardContent();
             			content.putImage(new Image(context.getResourceAsStream("/resources/img/energy_full_5.png")));
+            			
             			db.setContent(content);
                       	event.consume();
            			}

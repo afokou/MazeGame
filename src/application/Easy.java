@@ -132,11 +132,11 @@ public class Easy extends GameLayout {
 	    timer = new Timer();
 	    timer.scheduleAtFixedRate(new TimerTask() {
 	        public void run() {
+	 
 	            if(countdown > 0) {
 	            	double curOpacity = (double) Math.round(countdown / totalTime * 10) / 10;
 	            	timeroverlay.setFill(new javafx.scene.paint.Color(0, 0, 0, 1.0 - curOpacity));
-	            
-	            	timeroverlay.setFill(new javafx.scene.paint.Color(0, 0, 0, 1.0 - curOpacity));
+	            	
 	            	if (countdown > 130) {
 	            		brightness.setImage(new Image(context.getResourceAsStream("/resources/img/sun_full_1.png")));
 	            		energyBar.setImage(new Image(context.getResourceAsStream("/resources/img/energy_full_5.png")));
@@ -144,18 +144,19 @@ public class Easy extends GameLayout {
 	            		brightness.setImage(new Image(context.getResourceAsStream("/resources/img/sun_full_1-1.png")));
 	            		energyBar.setImage(new Image(context.getResourceAsStream("/resources/img/energy_4.png")));
 	            	} else if (countdown > 15) {
-	            		brightness.setImage(new Image(context.getResourceAsStream("/resources/img/energy_3.png")));
-	            		energyBar.setImage(new Image(context.getResourceAsStream("/resources/img/sun_full_1.png")));
+	            		brightness.setImage(new Image(context.getResourceAsStream("/resources/img/sun_full_1-2.png")));
+	            		energyBar.setImage(new Image(context.getResourceAsStream("/resources/img/energy_3.png")));
+	            		
 	            	} else if (countdown > 5 ) {
-	            		brightness.setImage(new Image(context.getResourceAsStream("/resources/img/energy_2.png")));
-	            		energyBar.setImage(new Image(context.getResourceAsStream("/resources/img/sun_full_1.png")));
+	            		brightness.setImage(new Image(context.getResourceAsStream("/resources/img/sun_full_1-3.png")));
+	            		energyBar.setImage(new Image(context.getResourceAsStream("/resources/img/energy_2.png")));
 	            	} else {
-	            		brightness.setImage(new Image(context.getResourceAsStream("/resources/img/energy_1.png")));
-	            		energyBar.setImage(new Image(context.getResourceAsStream("/resources/img/sun_full_1.png")));
+	            		brightness.setImage(new Image(context.getResourceAsStream("/resources/img/sun_full_1-4.png")));
+	            		energyBar.setImage(new Image(context.getResourceAsStream("/resources/img/energy_1.png")));
 	         
 	            	}
 	            	
-	            	
+	    
 	                countdown--;
 	            }
 	            else {
