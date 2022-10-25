@@ -136,8 +136,10 @@ public class Easy extends GameLayout {
     }
     
     
-    public static void testing() {
-    
+    public void testing() {
+    	countdown = totalTime;
+    	brightness.setImage(new Image(getClass().getResourceAsStream("/resources/img/sun_full_1.png")));
+		energyBar.setImage(new Image(getClass().getResourceAsStream("/resources/img/energy_full_5.png")));
     }
     
     

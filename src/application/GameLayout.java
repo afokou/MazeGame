@@ -24,7 +24,10 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.input.TransferMode;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 import javafx.scene.input.KeyCode;
 
 public abstract class GameLayout {
@@ -112,7 +115,7 @@ public abstract class GameLayout {
 	            inventoryFood.setImage(food.getImage());
 	            inventoryFood.getProperties().put("isFood", true);
 	            
-	    		inputCombination(MazeGame.getLevelScene(), null);
+	    		inputCombination(MazeGame.getLevelScene());
 
 	            break;
 	        }
@@ -167,7 +170,6 @@ public abstract class GameLayout {
     		else {
     			System.out.println("do nothing");
     		}
-    		
     	}
     }
     
@@ -183,45 +185,32 @@ public abstract class GameLayout {
 	        @Override
 	        public void run() {
 	          if (timeTyping <10) {
-	             //timerLabel=("Time for typing: " + timeTyping + " / 10s");
+	            
 	               timeTyping++;
 	               System.out.println(timeTyping);
-	               //timeOut(timeTyping);
-	           	 //System.out.println("timeTyping");
 	            }
 	          };   
 	      }, 0,1000);
 	  }
-	  
-	  /*public void timeOut(int timeTyping) {
-	     	 System.out.println("timeouting");
-		  if ((timeTyping >9)&&(!timeOver)) {
-			  timeOver = true;
-			  Alert timeOut = new Alert(AlertType.WARNING);
-		      timeOut.setContentText("The time ran out. You lost.");
-		      timeOut.show();
-		  }
-	  }*/
-	  
 	
 	public void inputCombination(Scene scene) {
 	  System.out.println("input requested");
 	  setTimer();
 	  System.out.println("timer requested");
-	  Alert inputalert = new Alert(AlertType.WARNING);
-	  System.out.println("warning");
+	  Alert inputalert = new Alert(AlertType.INFORMATION);
 	  inputalert.setContentText("Close the window and type HELP to survive the night\nYou have 10 seconds");
 	  inputalert.show();
+	  
 	  scene.setOnMouseMoved(mevent -> {
 		  if ((timeTyping >9)&&(!timeOver)&&(!survived)) {
 			  timeOver = true;
-			  Alert timeOut = new Alert(AlertType.WARNING);
+			  Alert timeOut = new Alert(AlertType.INFORMATION);
 		      timeOut.setContentText("The time ran out. You lost.");
-		      timeOut.show();}
+		      timeOut.show();
+		      }
 	  });
 	  scene.setOnKeyPressed(event -> {
 	   	  	System.out.println("input method");
-	          //ask for help to get through the night
 	          if (event.getCode() == KeyCode.H)  {
 	            System.out.println("pressed H");
 	              userInput = userInput + "H";  
@@ -246,7 +235,8 @@ public abstract class GameLayout {
 	              inputalert.setContentText("Well done, you made it through the night");
 	              inputalert.show();
 	              survived = true;
-	              
+	              resetTimer(getClass());
+	                  
 	            }
 	        }
 	   });
@@ -265,24 +255,47 @@ public abstract class GameLayout {
 	            
 	            imagecount++;
 	            if(imagecount==4) {	         
-	            	Alert type = new Alert(AlertType.NONE,"You won!!",ButtonType.OK);	            	
-	            	type.show();	        
-	            	
+	            	iWon();
 	            }
 	            if(imagecount==6) {
-	            	Alert alert= new Alert(Alert.AlertType.CONFIRMATION);
-	            	alert.setContentText("You won");
-	            	alert.show();
+	            	Alert type = new Alert(AlertType.NONE,"You won, press the home button to play again!!",ButtonType.OK);	            	
+	            	type.show();
 	            }
 	            if(imagecount==8) {
-	            	Alert alert= new Alert(Alert.AlertType.CONFIRMATION);
-	            	alert.setContentText("You won");
-	            	alert.show();
+	            	Alert type = new Alert(AlertType.NONE,"You won, press the home button to play again!!",ButtonType.OK);	            	
+	            	type.show();
 	            }
-	            
-	            
+	             
 	            break;
 	        }
     	}
+    }
+    
+    public void iWon() {
+    	Stage myDialog = new Stage();
+        myDialog.initModality(Modality.WINDOW_MODAL);
+        VBox vBox = new VBox();
+        Button menu = new Button("Go to menu");
+        
+        menu.setStyle("-fx-background-color: #FFFFFF; -fx-border-color: #ff66c4;");
+        vBox.setStyle("-fx-background-color: #ff66c4");
+        vBox.getChildren().addAll(new Text("You found your missing puzzle piece, great job!!"),menu);
+        
+        Scene dialogScene = new Scene(vBox,200,100);
+        myDialog.setScene(dialogScene);
+        myDialog.show();
+        
+        myDialog.show();
+        menu.setOnAction(event -> {
+            myDialog.close();
+            resetGame();
+			try {
+				MazeGame.main.startGame();
+			} catch (Exception e) {
+				
+				e.printStackTrace();
+			}
+              
+        });
     }
 }
