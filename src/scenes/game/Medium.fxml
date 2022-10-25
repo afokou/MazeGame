@@ -8,10 +8,10 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="mediumGame" maxHeight="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #3552B8;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Medium">
+<AnchorPane fx:id="mediumGame" maxHeight="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #3552B8;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Medium">
    <children>
    	<Rectangle fx:id="timeroverlay" arcHeight="5.0" arcWidth="5.0" fill="TRANSPARENT" height="315.0" layoutX="-9.0" layoutY="-6.0" stroke="TRANSPARENT" strokeType="INSIDE" width="608.0" />
-      <ImageView fx:id="obstacle10" fitHeight="62.0" fitWidth="60.0" layoutX="116.0" layoutY="204.0" nodeOrientation="RIGHT_TO_LEFT">
+      <ImageView fx:id="obstacle10" fitHeight="62.0" fitWidth="60.0" layoutX="116.0" layoutY="194.0" nodeOrientation="RIGHT_TO_LEFT">
          <image>
             <Image url="@../../resources/img/tree.png" />
          </image>
@@ -22,7 +22,7 @@
          </image>
 	    </ImageView>
       <Button fx:id="help" layoutX="550.0" layoutY="14.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="36.0" style="-fx-background-color: #ffff;" text="?" />
-      <Button fx:id="home" layoutX="16.0" layoutY="18.0" mnemonicParsing="false" style="-fx-background-color: fff;" text="Back" />
+      <Button fx:id="home" layoutX="16.0" layoutY="18.0" mnemonicParsing="false" style="-fx-background-color: fff;" text="Home" />
       <Rectangle fill="WHITE" height="140.0" layoutX="-1.0" layoutY="308.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="600.0" />
       <ImageView fx:id="imagem1" fitHeight="40.0" fitWidth="40.0" layoutX="397.0" layoutY="133.0">
          <image>

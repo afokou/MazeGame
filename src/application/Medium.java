@@ -85,7 +85,7 @@ public class Medium extends GameLayout {
 	
 	double totalTime = 100;
 	double countdown = 100;
-	Timer timer;
+	public Timer timer;
 	
     public void initialiseCharacter(Class context) {
     	if (characterType == "red") {
@@ -99,6 +99,11 @@ public class Medium extends GameLayout {
     	}
     	initialiseCharacterMovement(character);
     	dragAndDropFood(inventoryFoods, energyBar, context);
+    	
+		if (timer != null) {
+			timer.cancel();
+		}
+		resetTimer(context);
     }
     
     public void setup() {
@@ -137,6 +142,18 @@ public class Medium extends GameLayout {
 		images.add(imagem4);
 		images.add(imagem5);
 		images.add(imagem6);
+	
+    }
+    
+    public void resetGame() {
+    	countdown = totalTime;
+    	timer.cancel();
+    }
+    
+    public void resetTimer(Class context) {
+    	countdown = totalTime;
+		brightness.setImage(new Image(context.getResourceAsStream("/resources/img/sun_full_1.png")));
+		energyBar.setImage(new Image(context.getResourceAsStream("/resources/img/energy_full_5.png")));
     }
     
     public void run(Class context) {

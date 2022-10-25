@@ -77,6 +77,7 @@ public class MazeGame extends Application
 		
 		easyController.home.setOnAction(e -> {
 			try {
+				easyController.resetGame();
 				MazeGame.main.startGame();
 			} catch (Exception e1) {
 				e1.printStackTrace();
@@ -85,6 +86,7 @@ public class MazeGame extends Application
 		
 		mediumController.home.setOnAction(e -> {
 			try {
+				mediumController.resetGame();
 				MazeGame.main.startGame();
 			} catch (Exception e1) {
 				e1.printStackTrace();
@@ -93,6 +95,7 @@ public class MazeGame extends Application
 		
 		hardController.home.setOnAction(e -> {
 			try {
+				hardController.resetGame();
 				MazeGame.main.startGame();
 			} catch (Exception e1) {
 				e1.printStackTrace();
