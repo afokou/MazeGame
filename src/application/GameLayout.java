@@ -45,6 +45,10 @@ public abstract class GameLayout {
 	
 	public abstract void setup();
 	
+	public abstract void resetGame();
+	
+	public abstract void resetTimer(Class context);
+	
 	public abstract void run(Class context);
 	
 	protected void initialiseCharacterMovement(ImageView character) {
@@ -116,7 +120,8 @@ public abstract class GameLayout {
             			Dragboard db = inventory.startDragAndDrop(TransferMode.ANY);
             			ClipboardContent content = new ClipboardContent();
             			content.putImage(new Image(context.getResourceAsStream("/resources/img/energy_full_5.png")));
-            			
+            			resetTimer(context);
+  	
             			db.setContent(content);
                       	event.consume();
            			}
@@ -140,7 +145,23 @@ public abstract class GameLayout {
             });
         }
        }
+
+  public void findOutifYouWon(List<ImageView> images, List<ImageView> inventoryImages, Class context) {
+    	for(ImageView puzzlePieces : inventoryImages ) {	
+    		if((boolean) puzzlePieces.getProperties().get("isImage")) {
+    			
+    		}
+    		if(!(boolean) puzzlePieces.getProperties().get("isImage")) {
+    			Alert alert = new Alert(AlertType.INFORMATION);
+    			alert.setContentText("You won");
+    		}
     
+    		else {
+    			System.out.println("do nothing");
+    		}
+    		
+    	}
+    }
     
     public void handleImageCollision(ImageView character, List<ImageView> images, List<ImageView> inventoryImages)
     {

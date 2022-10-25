@@ -114,7 +114,7 @@ public class Hard extends GameLayout {
 	
 	double totalTime = 60;
 	double countdown = 60;
-	Timer timer;
+	public Timer timer;
 	
     public void initialiseCharacter(Class context) {
     	if (characterType == "red") {
@@ -128,6 +128,10 @@ public class Hard extends GameLayout {
     	}
     	initialiseCharacterMovement(character);
     	dragAndDropFood(inventoryFoods, energyBar, context);
+		if (timer != null) {
+			timer.cancel();
+		}
+		resetTimer(context);
     }
     
     public void setup() {
@@ -181,6 +185,17 @@ public class Hard extends GameLayout {
 		images.add(imageh8);
     }
     
+    public void resetGame() {
+    	countdown = totalTime;
+    	timer.cancel();
+    }
+    
+    public void resetTimer(Class context) {
+    	countdown = totalTime;
+		brightness.setImage(new Image(context.getResourceAsStream("/resources/img/sun_full_1.png")));
+		energyBar.setImage(new Image(context.getResourceAsStream("/resources/img/energy_full_5.png")));
+    }
+    
     public void energyBarRun(Class context) {
 		
     }
@@ -195,7 +210,7 @@ public class Hard extends GameLayout {
 	            	timeroverlay.setFill(new javafx.scene.paint.Color(0, 0, 0, 1.0 - curOpacity));
 	                // System.out.println("Time left: " + countdown);
 	            	
-	            	if (countdown > 60) {
+	            	if (countdown > 50) {
 	            		brightness.setImage(new Image(context.getResourceAsStream("/resources/img/sun_full_1.png")));
 	            		energyBar.setImage(new Image(context.getResourceAsStream("/resources/img/energy_full_5.png")));
 	            	} else if (countdown > 45) {

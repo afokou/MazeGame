@@ -83,7 +83,7 @@ public class Easy extends GameLayout {
 	
 	double totalTime = 150;
 	double countdown = 150;
-	Timer timer;
+	public Timer timer;
 
     public void initialiseCharacter(Class context) {
     	if (characterType == "red") {
@@ -97,6 +97,11 @@ public class Easy extends GameLayout {
     	}
     	initialiseCharacterMovement(character);
     	dragAndDropFood(inventoryFoods, energyBar, context);
+		if (timer != null) {
+			timer.cancel();
+		}
+		resetTimer(context);
+    	// findOutifYouWon(foods, foods, context);
     }
     
     public void setup() {
@@ -126,6 +131,17 @@ public class Easy extends GameLayout {
 		images.add(imagee2);
 		images.add(imagee3);
 		images.add(imagee4);
+    }
+    
+    public void resetGame() {
+    	countdown = totalTime;
+    	timer.cancel();
+    }
+    
+    public void resetTimer(Class context) {
+    	countdown = totalTime;
+		brightness.setImage(new Image(context.getResourceAsStream("/resources/img/sun_full_1.png")));
+		energyBar.setImage(new Image(context.getResourceAsStream("/resources/img/energy_full_5.png")));
     }
     
 
