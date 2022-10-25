@@ -140,61 +140,6 @@ public abstract class GameLayout {
         }
        }
     
-    String userInput ="";
-    Timer timer = new Timer();  
-    int timeTyping = ;
-    Label timerLabel = new Label("Time for typing: " + timeTyping + " / 10s");
-    
-    public void setTimer() {
-        this.timer.scheduleAtFixedRate(new TimerTask() {
-          @Override
-          public void run() {
-            while (timeTyping <10) {
-               timerLabel.setText("Time for typing: " + timeTyping + " / 10s");
-                 timeTyping++;
-              }
-            else (timeTyping >9){
-               timerLabel.setText("The time ran out. You lost.");
-              }
-            }    
-        }, 0,1000);
-    }
-
-  public void inputCombination() {
-    System.out.println("input requested")
-    setTimer();
-    Alert alert = new Alert(AlertType.WARNING);
-    alert.setContentText("Type HELP to survive the night");
-       this.setOnKeyPressed(event -> {
-            //ask for help to get through the night
-            if (event.getCode() == KeyCode.H)  {
-              System.out.println("pressed H");
-                userInput = userInput + "H";  
-              System.out.println(userInput);
-              } else if (event.getCode() == KeyCode.E)  {
-                  System.out.println("pressed E");
-                userInput = userInput + "E";  
-                  System.out.println(userInput);
-              } else if (event.getCode() == KeyCode.L)  {
-                  System.out.println("pressed L");
-                userInput = userInput + "L";  
-                  System.out.println(userInput);
-              } else if (event.getCode() == KeyCode.X)  {
-                  System.out.println("pressed X");
-                userInput = "";  
-                  System.out.println(userInput);
-              } else if (event.getCode() == KeyCode.P)  {
-                  System.out.println("pressed P");
-                  userInput = userInput + "P";  
-                  System.out.println(userInput);
-                  if (userInput.equals("HELP")){
-                    Alert alert = new Alert(AlertType.INFORMATION);
-                alert.setContentText("Well done, you made it through the night");
-              }
-          }
-     });
-  }
-   
     
     public void handleImageCollision(ImageView character, List<ImageView> images, List<ImageView> inventoryImages)
     {
