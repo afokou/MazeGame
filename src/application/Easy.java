@@ -13,6 +13,8 @@ import javafx.scene.layout.AnchorPane;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.shape.Polygon;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.image.Image;
@@ -95,6 +97,7 @@ public class Easy extends GameLayout {
     	}
     	initialiseCharacterMovement(character);
     	dragAndDropFood(inventoryFoods, energyBar, context);
+    	findOutifYouWon(foods, foods, context);
     }
     
     public void setup() {
@@ -156,8 +159,9 @@ public class Easy extends GameLayout {
 	         
 	            	}
 	            	
-	    
+	            	
 	                countdown--;
+	                
 	            }
 	            else {
 	                timer.cancel();

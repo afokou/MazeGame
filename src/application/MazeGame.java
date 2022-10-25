@@ -101,32 +101,32 @@ public class MazeGame extends Application
 		
 		easyController.help.setOnAction(e -> {
 			Alert alert = new Alert(AlertType.INFORMATION);
-			alert.setContentText("information");
+			alert.setContentText("Find all the puzzle pieces to win the game, drag the apple to the engery bar to get more time");
 			alert.show();
         });
 		
 		mediumController.help.setOnAction(e -> {
 			Alert alert = new Alert(AlertType.INFORMATION);
-			alert.setContentText("information");
+			alert.setContentText("Find all the puzzle pieces to win the game, drag the apple to the engery bar to get more time");
 			alert.show();
         });
 		
 		hardController.help.setOnAction(e -> {
 			Alert alert = new Alert(AlertType.INFORMATION);
-			alert.setContentText("information");
+			alert.setContentText("Find all the puzzle pieces to win the game, drag the apple to the engery bar to get more time");
 			alert.show();
         });
 		
 		
 		introController.infoStart.setOnAction(e -> {
 			Alert alert = new Alert(AlertType.INFORMATION);
-			alert.setContentText("information");
+			alert.setContentText("Find all the puzzle pieces to win the game, drag the apple to the engery bar to get more time. When you collect all the puzzle pieces you win the game. When the sun is no longer shining and the energy bar is out you lose the game");
 			alert.show();
         });
 		
 		levelsController.levelsInfo.setOnAction(e -> {
 			Alert alert = new Alert(AlertType.INFORMATION);
-			alert.setContentText("information");
+			alert.setContentText("Choose a level");
 			alert.show();
         });
 		
