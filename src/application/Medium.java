@@ -3,6 +3,7 @@ package application;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -179,6 +180,10 @@ public class Medium extends GameLayout {
 					} else {
 						brightness.setImage(new Image(context.getResourceAsStream("/resources/img/sun_full_1-4.png")));
 						energyBar.setImage(new Image(context.getResourceAsStream("/resources/img/energy_1.png")));
+						Platform.runLater(() -> {
+							iLost();
+							timer.cancel();
+						});
 
 					}
 

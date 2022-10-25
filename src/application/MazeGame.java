@@ -26,7 +26,7 @@ public class MazeGame extends Application {
 	private GameLayout mediumController;
 	private GameLayout hardController;
 
-	private static String level = "easy";
+	public static String level = "easy";
 
 	@Override
 	public void start(Stage primaryStage) throws Exception {

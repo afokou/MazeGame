@@ -120,7 +120,7 @@ public abstract class GameLayout {
 			}
 		}
 	}
-	
+
 	public void handleDogCollision(ImageView character, List<ImageView> dogs) {
 		for (ImageView dog1 : dogs) {
 			if (character.getBoundsInParent().intersects(dog1.getBoundsInParent()) && dog1.getScene() != null) {
@@ -131,8 +131,6 @@ public abstract class GameLayout {
 			}
 		}
 	}
-	
-
 
 	public void dragAndDropFood(List<ImageView> inventoryFoods, ImageView energyBar, Class context) {
 		for (ImageView inventory : inventoryFoods) {
@@ -181,7 +179,8 @@ public abstract class GameLayout {
 	public void inputCombination(Scene scene) {
 		setTimer();
 		Alert inputalert = new Alert(AlertType.INFORMATION);
-		inputalert.setContentText("Close the window and type LALALA to make the dog fall asleep.\nYou have 10 seconds.\nIf you mistyped, type X and try again.");
+		inputalert.setContentText(
+				"Close the window and type LALALA to make the dog fall asleep.\nYou have 10 seconds.\nIf you mistyped, type X and try again.");
 		inputalert.show();
 
 		scene.setOnMouseMoved(mevent -> {
@@ -207,7 +206,7 @@ public abstract class GameLayout {
 				userInput = userInput + "A";
 				System.out.println(userInput);
 				if (userInput.equals("LALALA")) {
-					inputalert.setContentText("Well done, the dog fell asleep!");
+					inputalert.setContentText("Well done, you won extra time");
 					inputalert.show();
 					survived = true;
 					userInput = "";
@@ -228,13 +227,13 @@ public abstract class GameLayout {
 				inventoryImage.setImage(image.getImage());
 
 				imagecount++;
-				if (imagecount == 4) {
+				if (MazeGame.level == "easy" && imagecount == 4) {
 					iWon();
 				}
-				if (imagecount == 6) {
+				if (MazeGame.level == "medium" && imagecount == 6) {
 					iWon();
 				}
-				if (imagecount == 8) {
+				if (MazeGame.level == "hard" && imagecount == 8) {
 					iWon();
 				}
 
@@ -243,15 +242,13 @@ public abstract class GameLayout {
 		}
 	}
 
-
 	public void iWon() {
 		Stage myDialog = new Stage();
 		myDialog.initModality(Modality.WINDOW_MODAL);
 		VBox vBox = new VBox();
 		Button menu = new Button("Go to home-page");
 
-		menu.setStyle("-fx-background-color: #FFFFFF; -fx-border-color: #ff66c4;");
-		vBox.setStyle("-fx-background-color: #ff66c4");
+		vBox.setStyle("-fx-background-color: #FFFFFF");
 		vBox.getChildren().addAll(new Text("You found your missing puzzle piece, great job!!"), menu);
 
 		Scene dialogScene = new Scene(vBox, 200, 100);
@@ -271,5 +268,32 @@ public abstract class GameLayout {
 
 		});
 	}
-	
+
+	public void iLost() {
+		Stage myDialog = new Stage();
+		myDialog.initModality(Modality.WINDOW_MODAL);
+		VBox vBox = new VBox();
+		Button menu = new Button("Go to home-page");
+
+		vBox.setStyle("-fx-background-color: #FFFFFF");
+		vBox.getChildren().addAll(new Text("Sorry you lost, go back to the menu!"), menu);
+
+		Scene dialogScene = new Scene(vBox, 200, 100);
+		myDialog.setScene(dialogScene);
+		myDialog.show();
+
+		myDialog.show();
+		menu.setOnAction(event -> {
+			myDialog.close();
+			resetGame();
+			try {
+				MazeGame.main.startGame();
+			} catch (Exception e) {
+
+				e.printStackTrace();
+			}
+
+		});
+	}
+
 }
