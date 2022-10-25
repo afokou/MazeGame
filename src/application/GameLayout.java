@@ -9,6 +9,7 @@ import javafx.scene.Node;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.ClipboardContent;
@@ -153,10 +154,9 @@ public abstract class GameLayout {
 	            inventoryImage.setImage(image.getImage());
 	            
 	            imagecount++;
-	            if(imagecount==4) {
-	            	Alert alert= new Alert(Alert.AlertType.CONFIRMATION);
-	            	alert.setContentText("You won");
-	            	alert.show();
+	            if(imagecount==1) {	         
+	            	Alert type = new Alert(AlertType.NONE,"You won!!",ButtonType.OK);	            	
+	            	type.show();	        
 	            	
 	            }
 	            if(imagecount==6) {
