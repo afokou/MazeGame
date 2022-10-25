@@ -97,7 +97,6 @@ public class Easy extends GameLayout {
     	}
     	initialiseCharacterMovement(character);
     	dragAndDropFood(inventoryFoods, energyBar, context);
-    	findOutifYouWon(foods, foods, context);
     }
     
     public void setup() {
@@ -123,7 +122,6 @@ public class Easy extends GameLayout {
 		obstacles.add(obstacle10);
 		
 		foods.add(food1);
-		//images.add(image1);
 		images.add(imagee1);
 		images.add(imagee2);
 		images.add(imagee3);
@@ -157,6 +155,7 @@ public class Easy extends GameLayout {
 	            		brightness.setImage(new Image(context.getResourceAsStream("/resources/img/sun_full_1-4.png")));
 	            		energyBar.setImage(new Image(context.getResourceAsStream("/resources/img/energy_1.png")));
 	         
+	         
 	            	}
 	            	
 	            	
@@ -169,4 +168,5 @@ public class Easy extends GameLayout {
 	        }
 	    }, 1000,1000);
     }
+    
 }

@@ -9,6 +9,7 @@ import javafx.scene.Node;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.ClipboardContent;
@@ -27,10 +28,7 @@ public abstract class GameLayout {
 	
 	@FXML
 	Button help;
-	
-	
-	
-	
+
 	protected List<ImageView> inventoryFoods = new ArrayList<ImageView>();
 	protected List<ImageView> inventoryImages = new ArrayList<ImageView>();
 	List<Node> obstacles = new ArrayList<Node>();
@@ -41,6 +39,7 @@ public abstract class GameLayout {
 	
     double imageX = 0;
     double imageY = 0;
+    public int imagecount =0;
 	
 	public abstract void initialiseCharacter(Class context);
 	
@@ -141,24 +140,7 @@ public abstract class GameLayout {
             });
         }
        }
-   
     
-    public void findOutifYouWon(List<ImageView> images, List<ImageView> inventoryImages, Class context) {
-    	for(ImageView puzzlePieces : inventoryImages ) {	
-    		if((boolean) puzzlePieces.getProperties().get("isImage")) {
-    			
-    		}
-    		if(!(boolean) puzzlePieces.getProperties().get("isImage")) {
-    			Alert alert = new Alert(AlertType.INFORMATION);
-    			alert.setContentText("You won");
-    		}
-    
-    		else {
-    			System.out.println("do nothing");
-    		}
-    		
-    	}
-    }
     
     public void handleImageCollision(ImageView character, List<ImageView> images, List<ImageView> inventoryImages)
     {
@@ -170,7 +152,23 @@ public abstract class GameLayout {
 	            
 	            ImageView inventoryImage = inventoryImages.get(number - 1);
 	            inventoryImage.setImage(image.getImage());
-	            inventoryImage.getProperties().put("isImage", true);
+	            
+	            imagecount++;
+	            if(imagecount==1) {	         
+	            	Alert type = new Alert(AlertType.NONE,"You won!!",ButtonType.OK);	            	
+	            	type.show();	        
+	            	
+	            }
+	            if(imagecount==6) {
+	            	Alert alert= new Alert(Alert.AlertType.CONFIRMATION);
+	            	alert.setContentText("You won");
+	            	alert.show();
+	            }
+	            if(imagecount==8) {
+	            	Alert alert= new Alert(Alert.AlertType.CONFIRMATION);
+	            	alert.setContentText("You won");
+	            	alert.show();
+	            }
 	            
 	            
 	            break;
