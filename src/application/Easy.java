@@ -155,6 +155,7 @@ public class Easy extends GameLayout {
 	            		brightness.setImage(new Image(context.getResourceAsStream("/resources/img/sun_full_1-4.png")));
 	            		energyBar.setImage(new Image(context.getResourceAsStream("/resources/img/energy_1.png")));
 	         
+	         
 	            	}
 	            	
 	            	
@@ -167,4 +168,5 @@ public class Easy extends GameLayout {
 	        }
 	    }, 1000,1000);
     }
+    
 }
