@@ -51,7 +51,7 @@ public class Medium extends GameLayout {
 	@FXML
 	ImageView food1;
 	@FXML
-	ImageView food2;	
+	ImageView food2;
 	@FXML
 	ImageView food3;
 	@FXML
@@ -74,51 +74,51 @@ public class Medium extends GameLayout {
 	ImageView inventoryImage5;
 	@FXML
 	ImageView inventoryImage6;
-	
+
 	@FXML
 	Rectangle timeroverlay;
 	@FXML
 	ImageView energyBar;
-	
-	@FXML 
+
+	@FXML
 	ImageView brightness;
-	
+
 	double totalTime = 100;
 	double countdown = 100;
 	public Timer timer;
-	
-    public void initialiseCharacter(Class context) {
-    	if (characterType == "red") {
-    		character.setImage(new Image(context.getResourceAsStream("/resources/img/char1.png")));
-    	}
-    	if (characterType == "yellow") {
-    		character.setImage(new Image(context.getResourceAsStream("/resources/img/char2.png")));
-    	}
-    	if (characterType == "blue") {
-    		character.setImage(new Image(context.getResourceAsStream("/resources/img/char3.png")));
-    	}
-    	initialiseCharacterMovement(character);
-    	dragAndDropFood(inventoryFoods, energyBar, context);
-    	
+
+	public void initialiseCharacter(Class context) {
+		if (characterType == "red") {
+			character.setImage(new Image(context.getResourceAsStream("/resources/img/char1.png")));
+		}
+		if (characterType == "yellow") {
+			character.setImage(new Image(context.getResourceAsStream("/resources/img/char2.png")));
+		}
+		if (characterType == "blue") {
+			character.setImage(new Image(context.getResourceAsStream("/resources/img/char3.png")));
+		}
+		initialiseCharacterMovement(character);
+		dragAndDropFood(inventoryFoods, energyBar, context);
+
 		if (timer != null) {
 			timer.cancel();
 		}
 		resetTimer(context);
-    }
-    
-    public void setup() {
-    	inventoryFoods.add(inventoryFood1);
+	}
+
+	public void setup() {
+		inventoryFoods.add(inventoryFood1);
 		inventoryFoods.add(inventoryFood2);
 		inventoryFoods.add(inventoryFood3);
 		inventoryFoods.add(inventoryFood4);
-		
+
 		inventoryImages.add(inventoryImage1);
 		inventoryImages.add(inventoryImage2);
 		inventoryImages.add(inventoryImage3);
 		inventoryImages.add(inventoryImage4);
 		inventoryImages.add(inventoryImage5);
 		inventoryImages.add(inventoryImage6);
-		
+
 		obstacles.add(obstacle1);
 		obstacles.add(obstacle2);
 		obstacles.add(obstacle3);
@@ -132,7 +132,6 @@ public class Medium extends GameLayout {
 		obstacles.add(obstacle11);
 		obstacles.add(obstacle12);
 
-		
 		foods.add(food1);
 		foods.add(food2);
 		foods.add(food3);
@@ -142,53 +141,52 @@ public class Medium extends GameLayout {
 		images.add(imagem4);
 		images.add(imagem5);
 		images.add(imagem6);
-	
-    }
-    
-    public void resetGame() {
-    	countdown = totalTime;
-    	timer.cancel();
-    }
-    
-    public void resetTimer(Class context) {
-    	countdown = totalTime;
+
+	}
+
+	public void resetGame() {
+		countdown = totalTime;
+		timer.cancel();
+	}
+
+	public void resetTimer(Class context) {
+		countdown = totalTime;
 		brightness.setImage(new Image(context.getResourceAsStream("/resources/img/sun_full_1.png")));
 		energyBar.setImage(new Image(context.getResourceAsStream("/resources/img/energy_full_5.png")));
-    }
-    
-    public void run(Class context) {
+	}
+
+	public void run(Class context) {
 		System.out.println("Started hard mode");
-	    timer = new Timer();
-	    timer.scheduleAtFixedRate(new TimerTask() {
-	        public void run() {
-	            if(countdown > 0) {
-	            	double curOpacity = (double) Math.round(countdown / totalTime * 10) / 10;
-	            	timeroverlay.setFill(new javafx.scene.paint.Color(0, 0, 0, 1.0 - curOpacity));
-	            	if (countdown > 130) {
-	            		brightness.setImage(new Image(context.getResourceAsStream("/resources/img/sun_full_1.png")));
-	            		energyBar.setImage(new Image(context.getResourceAsStream("/resources/img/energy_full_5.png")));
-	            	} else if (countdown > 60) {
-	            		brightness.setImage(new Image(context.getResourceAsStream("/resources/img/sun_full_1-1.png")));
-	            		energyBar.setImage(new Image(context.getResourceAsStream("/resources/img/energy_4.png")));
-	            	} else if (countdown > 15) {
-	            		brightness.setImage(new Image(context.getResourceAsStream("/resources/img/sun_full_1-2.png")));
-	            		energyBar.setImage(new Image(context.getResourceAsStream("/resources/img/energy_3.png")));
-	            		
-	            	} else if (countdown > 5 ) {
-	            		brightness.setImage(new Image(context.getResourceAsStream("/resources/img/sun_full_1-3.png")));
-	            		energyBar.setImage(new Image(context.getResourceAsStream("/resources/img/energy_2.png")));
-	            	} else {
-	            		brightness.setImage(new Image(context.getResourceAsStream("/resources/img/sun_full_1-4.png")));
-	            		energyBar.setImage(new Image(context.getResourceAsStream("/resources/img/energy_1.png")));
-	         
-	            	}
-	            	
-	                countdown--;
-	            }
-	            else {
-	                timer.cancel();
-	            }
-	        }
-	    }, 1000,1000);
-    }
+		timer = new Timer();
+		timer.scheduleAtFixedRate(new TimerTask() {
+			public void run() {
+				if (countdown > 0) {
+					double curOpacity = (double) Math.round(countdown / totalTime * 10) / 10;
+					timeroverlay.setFill(new javafx.scene.paint.Color(0, 0, 0, 1.0 - curOpacity));
+					if (countdown > 130) {
+						brightness.setImage(new Image(context.getResourceAsStream("/resources/img/sun_full_1.png")));
+						energyBar.setImage(new Image(context.getResourceAsStream("/resources/img/energy_full_5.png")));
+					} else if (countdown > 60) {
+						brightness.setImage(new Image(context.getResourceAsStream("/resources/img/sun_full_1-1.png")));
+						energyBar.setImage(new Image(context.getResourceAsStream("/resources/img/energy_4.png")));
+					} else if (countdown > 15) {
+						brightness.setImage(new Image(context.getResourceAsStream("/resources/img/sun_full_1-2.png")));
+						energyBar.setImage(new Image(context.getResourceAsStream("/resources/img/energy_3.png")));
+
+					} else if (countdown > 5) {
+						brightness.setImage(new Image(context.getResourceAsStream("/resources/img/sun_full_1-3.png")));
+						energyBar.setImage(new Image(context.getResourceAsStream("/resources/img/energy_2.png")));
+					} else {
+						brightness.setImage(new Image(context.getResourceAsStream("/resources/img/sun_full_1-4.png")));
+						energyBar.setImage(new Image(context.getResourceAsStream("/resources/img/energy_1.png")));
+
+					}
+
+					countdown--;
+				} else {
+					timer.cancel();
+				}
+			}
+		}, 1000, 1000);
+	}
 }
