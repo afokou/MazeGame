@@ -2,14 +2,18 @@ package application;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.ClipboardContent;
@@ -20,6 +24,8 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.input.TransferMode;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.text.Text;
+import javafx.scene.input.KeyCode;
 
 public abstract class GameLayout {
 	
@@ -106,6 +112,8 @@ public abstract class GameLayout {
 	            inventoryFood.setImage(food.getImage());
 	            inventoryFood.getProperties().put("isFood", true);
 	            
+	    		inputCombination(MazeGame.getLevelScene(), null);
+
 	            break;
 	        }
     	}
@@ -163,6 +171,87 @@ public abstract class GameLayout {
     	}
     }
     
+	  public String userInput ="";
+	  public Timer timer = new Timer();  
+	  public int timeTyping = 0;
+	  public String timerLabel = new String("Time for typing: " + timeTyping + " / 10s");
+	  boolean timeOver = false;
+	  boolean survived = false;
+	  
+	  public void setTimer() {
+	      this.timer.scheduleAtFixedRate(new TimerTask() {
+	        @Override
+	        public void run() {
+	          if (timeTyping <10) {
+	             //timerLabel=("Time for typing: " + timeTyping + " / 10s");
+	               timeTyping++;
+	               System.out.println(timeTyping);
+	               //timeOut(timeTyping);
+	           	 //System.out.println("timeTyping");
+	            }
+	          };   
+	      }, 0,1000);
+	  }
+	  
+	  /*public void timeOut(int timeTyping) {
+	     	 System.out.println("timeouting");
+		  if ((timeTyping >9)&&(!timeOver)) {
+			  timeOver = true;
+			  Alert timeOut = new Alert(AlertType.WARNING);
+		      timeOut.setContentText("The time ran out. You lost.");
+		      timeOut.show();
+		  }
+	  }*/
+	  
+	
+	public void inputCombination(Scene scene) {
+	  System.out.println("input requested");
+	  setTimer();
+	  System.out.println("timer requested");
+	  Alert inputalert = new Alert(AlertType.WARNING);
+	  System.out.println("warning");
+	  inputalert.setContentText("Close the window and type HELP to survive the night\nYou have 10 seconds");
+	  inputalert.show();
+	  scene.setOnMouseMoved(mevent -> {
+		  if ((timeTyping >9)&&(!timeOver)&&(!survived)) {
+			  timeOver = true;
+			  Alert timeOut = new Alert(AlertType.WARNING);
+		      timeOut.setContentText("The time ran out. You lost.");
+		      timeOut.show();}
+	  });
+	  scene.setOnKeyPressed(event -> {
+	   	  	System.out.println("input method");
+	          //ask for help to get through the night
+	          if (event.getCode() == KeyCode.H)  {
+	            System.out.println("pressed H");
+	              userInput = userInput + "H";  
+	            System.out.println(userInput);
+	            } else if (event.getCode() == KeyCode.E)  {
+	                System.out.println("pressed E");
+	              userInput = userInput + "E";  
+	                System.out.println(userInput);
+	            } else if (event.getCode() == KeyCode.L)  {
+	                System.out.println("pressed L");
+	              userInput = userInput + "L";  
+	                System.out.println(userInput);
+	            } else if (event.getCode() == KeyCode.X)  {
+	                System.out.println("pressed X");
+	              userInput = "";  
+	                System.out.println(userInput);
+	            } else if (event.getCode() == KeyCode.P)  {
+	                System.out.println("pressed P");
+	                userInput = userInput + "P";  
+	                System.out.println(userInput);
+	                if (userInput.equals("HELP")){
+	              inputalert.setContentText("Well done, you made it through the night");
+	              inputalert.show();
+	              survived = true;
+	              
+	            }
+	        }
+	   });
+}
+  
     public void handleImageCollision(ImageView character, List<ImageView> images, List<ImageView> inventoryImages)
     {
     	for (ImageView image : images) {
