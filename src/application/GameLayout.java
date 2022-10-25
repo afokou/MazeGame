@@ -154,7 +154,7 @@ public abstract class GameLayout {
 	            inventoryImage.setImage(image.getImage());
 	            
 	            imagecount++;
-	            if(imagecount==1) {	         
+	            if(imagecount==4) {	         
 	            	Alert type = new Alert(AlertType.NONE,"You won!!",ButtonType.OK);	            	
 	            	type.show();	        
 	            	
