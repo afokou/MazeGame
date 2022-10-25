@@ -106,7 +106,7 @@ public class MazeGame extends Application {
 		easyController.help.setOnAction(e -> {
 			Alert alert = new Alert(AlertType.INFORMATION);
 			alert.setContentText(
-					"Find all the puzzle pieces to win the game, drag the apple to the engery bar to get more time");
+					"Find all the puzzle pieces to win the game, drag the apple to the engery bar to get more time. If you encounter a dog, type help to receive extra time.");
 			alert.show();
 		});
 

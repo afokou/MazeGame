@@ -171,6 +171,7 @@ public abstract class GameLayout {
 				if (timeTyping < 10) {
 
 					timeTyping++;
+					System.out.println(timeTyping);
 
 				}
 			};
@@ -180,28 +181,20 @@ public abstract class GameLayout {
 	public void inputCombination(Scene scene) {
 		setTimer();
 		Alert inputalert = new Alert(AlertType.INFORMATION);
-		inputalert.setContentText("Close the window and type HELP to survive the night\nYou have 10 seconds");
+		inputalert.setContentText("Close the window and type LALALA to make the dog fall asleep.\nYou have 10 seconds.\nIf you mistyped, type X and try again.");
 		inputalert.show();
 
 		scene.setOnMouseMoved(mevent -> {
 			if ((timeTyping > 9) && (!timeOver) && (!survived)) {
 				timeOver = true;
 				Alert timeOut = new Alert(AlertType.INFORMATION);
-				timeOut.setContentText("The time ran out. You lost.");
+				timeOut.setContentText("The time ran out. Sorry, you could not get any extra time.");
 				timeOut.show();
 			}
 		});
 		scene.setOnKeyPressed(event -> {
 
-			if (event.getCode() == KeyCode.H) {
-				System.out.println("pressed H");
-				userInput = userInput + "H";
-				System.out.println(userInput);
-			} else if (event.getCode() == KeyCode.E) {
-				System.out.println("pressed E");
-				userInput = userInput + "E";
-				System.out.println(userInput);
-			} else if (event.getCode() == KeyCode.L) {
+			if (event.getCode() == KeyCode.L) {
 				System.out.println("pressed L");
 				userInput = userInput + "L";
 				System.out.println(userInput);
@@ -209,16 +202,16 @@ public abstract class GameLayout {
 				System.out.println("pressed X");
 				userInput = "";
 				System.out.println(userInput);
-			} else if (event.getCode() == KeyCode.P) {
-				System.out.println("pressed P");
-				userInput = userInput + "P";
+			} else if (event.getCode() == KeyCode.A) {
+				System.out.println("pressed A");
+				userInput = userInput + "A";
 				System.out.println(userInput);
-				if (userInput.equals("HELP")) {
-					inputalert.setContentText("Well done, you made it through the night");
+				if (userInput.equals("LALALA")) {
+					inputalert.setContentText("Well done, the dog fell asleep!");
 					inputalert.show();
 					survived = true;
+					userInput = "";
 					resetTimer(getClass());
-
 				}
 			}
 		});
@@ -250,6 +243,7 @@ public abstract class GameLayout {
 		}
 	}
 
+
 	public void iWon() {
 		Stage myDialog = new Stage();
 		myDialog.initModality(Modality.WINDOW_MODAL);
@@ -277,4 +271,5 @@ public abstract class GameLayout {
 
 		});
 	}
+	
 }
