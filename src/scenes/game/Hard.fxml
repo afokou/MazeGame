@@ -8,7 +8,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #3552B8;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Hard">
+<AnchorPane fx:id="hardGame" maxHeight="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #3552B8;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Hard">
    <children>
       <Rectangle fx:id="timeroverlay" arcHeight="5.0" arcWidth="5.0" fill="TRANSPARENT" height="314.0" layoutX="-9.0" layoutY="5.0" stroke="TRANSPARENT" strokeType="INSIDE" width="750.0" />
       <ImageView fx:id="obstacle13" fitHeight="71.0" fitWidth="72.0" layoutX="-7.0" layoutY="204.0">

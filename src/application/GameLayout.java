@@ -6,6 +6,8 @@ import java.util.List;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -27,12 +29,15 @@ public abstract class GameLayout {
 	Button help;
 	
 	
+	
+	
 	protected List<ImageView> inventoryFoods = new ArrayList<ImageView>();
 	protected List<ImageView> inventoryImages = new ArrayList<ImageView>();
 	List<Node> obstacles = new ArrayList<Node>();
 	List<ImageView> foods = new ArrayList<ImageView>();
 	List<ImageView> images = new ArrayList<ImageView>();
 	public String characterType = "red";
+	
 	
     double imageX = 0;
     double imageY = 0;
@@ -60,6 +65,8 @@ public abstract class GameLayout {
             character.setLayoutY(imageY);
             handleFoodCollision(character, foods, inventoryFoods);
             handleImageCollision(character, images, inventoryImages);
+      
+            
         });
         
         character.setFocusTraversable(true);
@@ -109,11 +116,10 @@ public abstract class GameLayout {
                		if(isOpen != null && isOpen.equals(true)) {
             			Dragboard db = inventory.startDragAndDrop(TransferMode.ANY);
             			ClipboardContent content = new ClipboardContent();
-            			content.putImage(new Image(context.getResourceAsStream("/resources/img/Rectangle.png")));
+            			content.putImage(new Image(context.getResourceAsStream("/resources/img/energy_full_5.png")));
+            			
             			db.setContent(content);
                       	event.consume();
-                     
-                      	
            			}
                    }
                });
@@ -126,8 +132,8 @@ public abstract class GameLayout {
 
                    if (db.hasImage()) {
                 	    inventory.getProperties().put("isFood", false);
-                	    inventory.setImage(new Image(context.getResourceAsStream("/resources/img/apple.png")));
-                        energyBar.setImage(db.getImage());
+                	    inventory.setImage(new Image(context.getResourceAsStream("/resources/img/Rectangle.png")));
+                        energyBar.setImage(new Image(context.getResourceAsStream("/resources/img/energy_full_5.png")));
                     }
                      event.consume(); 
 
@@ -135,6 +141,24 @@ public abstract class GameLayout {
             });
         }
        }
+   
+    
+    public void findOutifYouWon(List<ImageView> images, List<ImageView> inventoryImages, Class context) {
+    	for(ImageView puzzlePieces : inventoryImages ) {	
+    		if((boolean) puzzlePieces.getProperties().get("isImage")) {
+    			
+    		}
+    		if(!(boolean) puzzlePieces.getProperties().get("isImage")) {
+    			Alert alert = new Alert(AlertType.INFORMATION);
+    			alert.setContentText("You won");
+    		}
+    
+    		else {
+    			System.out.println("do nothing");
+    		}
+    		
+    	}
+    }
     
     public void handleImageCollision(ImageView character, List<ImageView> images, List<ImageView> inventoryImages)
     {
@@ -146,6 +170,8 @@ public abstract class GameLayout {
 	            
 	            ImageView inventoryImage = inventoryImages.get(number - 1);
 	            inventoryImage.setImage(image.getImage());
+	            inventoryImage.getProperties().put("isImage", true);
+	            
 	            
 	            break;
 	        }
