@@ -16,7 +16,10 @@ public class MazeGame extends Application
 {
     public static Stage primaryStage;
     public static MazeGame main;
-	private Scene startView, levelsView, charactersView, easyView, mediumView, hardView;
+	private Scene startView, levelsView, charactersView;
+	private static Scene easyView;
+	private static Scene mediumView;
+	private static Scene hardView;
 	private Intro introController;
 	private Levels levelsController;
 	private Characters charactersController;
@@ -24,7 +27,7 @@ public class MazeGame extends Application
 	private GameLayout mediumController;
 	private GameLayout hardController;
 	
-	private String level = "easy";
+	private static String level = "easy";
 	
 	@Override
 	public void start(Stage primaryStage) throws Exception {
@@ -45,7 +48,7 @@ public class MazeGame extends Application
 		startView = new Scene(start.load());
 		levelsView = new Scene(levels.load());
 		charactersView = new Scene(characters.load());
-		easyView = new Scene(easy.load());
+		setEasyView(new Scene(easy.load()));
 		mediumView = new Scene(medium.load());
 		hardView = new Scene(hard.load());
 		
@@ -174,9 +177,9 @@ public class MazeGame extends Application
 		primaryStage.show();
 	}
 	
-	private Scene getLevelScene() {
+	public static Scene getLevelScene() {
 		if (level == "easy") {
-			return easyView;
+			return getEasyView();
 		}
 		
 		if (level == "medium") {
@@ -214,5 +217,13 @@ public class MazeGame extends Application
 	{
 		//We launch the application
 		launch(args);
+	}
+
+	public static Scene getEasyView() {
+		return easyView;
+	}
+
+	public void setEasyView(Scene easyView) {
+		this.easyView = easyView;
 	}
 }

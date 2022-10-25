@@ -100,7 +100,9 @@ public class Easy extends GameLayout {
 		if (timer != null) {
 			timer.cancel();
 		}
+		
 		resetTimer(context);
+		
     	// findOutifYouWon(foods, foods, context);
     }
     
@@ -125,13 +127,19 @@ public class Easy extends GameLayout {
 		obstacles.add(obstacle8);
 		obstacles.add(obstacle9);
 		obstacles.add(obstacle10);
-		
+				
 		foods.add(food1);
 		images.add(imagee1);
 		images.add(imagee2);
 		images.add(imagee3);
 		images.add(imagee4);
     }
+    
+    
+    public static void testing() {
+    
+    }
+    
     
     public void resetGame() {
     	countdown = totalTime;
@@ -144,6 +152,7 @@ public class Easy extends GameLayout {
 		energyBar.setImage(new Image(context.getResourceAsStream("/resources/img/energy_full_5.png")));
     }
     
+  
 
     public void run(Class context) {
 	    timer = new Timer();
