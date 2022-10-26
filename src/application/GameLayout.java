@@ -7,6 +7,7 @@ import java.util.TimerTask;
 
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
@@ -180,7 +181,7 @@ public abstract class GameLayout {
 		setTimer();
 		Alert inputalert = new Alert(AlertType.INFORMATION);
 		inputalert.setContentText(
-				"Close the window and type LALALA to make the dog fall asleep.\nYou have 10 seconds.\nIf you mistyped, type X and try again.");
+				"Close the window and type LALALA to get extra time.\nYou have 10 seconds.\nIf you mistyped, type X and try again.");
 		inputalert.show();
 
 		scene.setOnMouseMoved(mevent -> {
@@ -189,6 +190,7 @@ public abstract class GameLayout {
 				Alert timeOut = new Alert(AlertType.INFORMATION);
 				timeOut.setContentText("The time ran out. Sorry, you could not get any extra time.");
 				timeOut.show();
+				timeTyping = 0;
 			}
 		});
 		scene.setOnKeyPressed(event -> {
@@ -210,6 +212,7 @@ public abstract class GameLayout {
 					inputalert.show();
 					survived = true;
 					userInput = "";
+					timeTyping = 0;
 					resetTimer(getClass());
 				}
 			}
@@ -245,13 +248,15 @@ public abstract class GameLayout {
 	public void iWon() {
 		Stage myDialog = new Stage();
 		myDialog.initModality(Modality.WINDOW_MODAL);
-		VBox vBox = new VBox();
+		VBox vBox = new VBox(10);
 		Button menu = new Button("Go to home-page");
+		vBox.setAlignment(Pos.CENTER);
 
 		vBox.setStyle("-fx-background-color: #FFFFFF");
-		vBox.getChildren().addAll(new Text("You found your missing puzzle piece, great job!!"), menu);
+		menu.setStyle("-fx-border-color: #3552B8");
+		vBox.getChildren().addAll(new Text("You found your missing puzzle peace, great job!!"), menu);
 
-		Scene dialogScene = new Scene(vBox, 200, 100);
+		Scene dialogScene = new Scene(vBox, 300, 100);
 		myDialog.setScene(dialogScene);
 		myDialog.show();
 
@@ -272,13 +277,15 @@ public abstract class GameLayout {
 	public void iLost() {
 		Stage myDialog = new Stage();
 		myDialog.initModality(Modality.WINDOW_MODAL);
-		VBox vBox = new VBox();
+		VBox vBox = new VBox(10);
 		Button menu = new Button("Go to home-page");
+		vBox.setAlignment(Pos.CENTER);
 
 		vBox.setStyle("-fx-background-color: #FFFFFF");
-		vBox.getChildren().addAll(new Text("Sorry you lost, go back to the menu!"), menu);
+		menu.setStyle("-fx-border-color: #3552B8");
+		vBox.getChildren().addAll(new Text("Sorry the time ran out, you lost"), menu);
 
-		Scene dialogScene = new Scene(vBox, 200, 100);
+		Scene dialogScene = new Scene(vBox, 300, 100);
 		myDialog.setScene(dialogScene);
 		myDialog.show();
 

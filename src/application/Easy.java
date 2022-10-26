@@ -193,6 +193,7 @@ public class Easy extends GameLayout {
 							iLost();
 							timer.cancel();
 						});
+
 					}
 
 					countdown--;
