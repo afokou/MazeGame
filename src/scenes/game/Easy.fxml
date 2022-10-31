@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -96,13 +97,6 @@
             <Image url="@../../resources/img/tree.png" />
          </image>
       </ImageView>
-      
-      
-       <!--.<ImageView fx:id="image1" fitHeight="35.0" fitWidth="57.0" layoutX="363.0" layoutY="91.0">
-         <image>
-            <Image url="@../../resources/img/piece1.png" />
-         </image>
-      </ImageView>-->
       <ImageView fx:id="imagee1" fitHeight="40.0" fitWidth="60.0" layoutX="111.0" layoutY="238.0">
          <image>
             <Image url="@../../resources/img/PuzzleEasy_Piece_01.png" />
@@ -174,5 +168,16 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </Text>
+      <ImageView fx:id="dog1" fitHeight="40.0" fitWidth="45.0" layoutX="526.0" layoutY="160.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../resources/img/dogHappy.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="dog2" fitHeight="40.0" fitWidth="45.0" layoutX="5.0" layoutY="270.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../resources/img/dogHappy.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="youLostEasy" layoutX="171.0" layoutY="6.0" prefHeight="27.0" prefWidth="256.0" />
    </children>
 </AnchorPane>

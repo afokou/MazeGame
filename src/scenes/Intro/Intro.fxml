@@ -5,20 +5,18 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #3552B8;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Intro">
    <children>
-      <Button fx:id="start" layoutX="214.0" layoutY="246.0" mnemonicParsing="false" prefHeight="88.0" prefWidth="143.0" style="-fx-background-color: #DDFBE9;" text="Start" />
-      <Text fill="WHITE" layoutX="121.0" layoutY="179.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Find your puzzle piece">
-         <font>
-            <Font size="41.0" />
-         </font></Text>
-      <Button fx:id="infoStart" layoutX="547.0" layoutY="14.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="39.0" style="-fx-background-color: #FFFF;" text="?" />
-      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="344.0" fitWidth="555.0" layoutX="29.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../resources/img/char3.png" />
+            <Image url="@../../resources/img/Group%20405.png" />
          </image>
       </ImageView>
+      <Button fx:id="start" layoutX="78.0" layoutY="229.0" mnemonicParsing="false" prefHeight="88.0" prefWidth="143.0" style="-fx-background-color: #DDFBE9;" text="Start" textFill="#19681f">
+         <font>
+            <Font size="22.0" />
+         </font></Button>
+      <Button fx:id="infoStart" layoutX="547.0" layoutY="14.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="39.0" style="-fx-background-color: #FFFF;" text="?" />
    </children>
 </AnchorPane>
